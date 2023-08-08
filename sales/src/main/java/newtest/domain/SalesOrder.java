@@ -23,7 +23,7 @@ public class SalesOrder {
 
     private String salesType;
 
-    @OneToMany
+    @ElementCollection
     private List<SalesItem> salesItems;
 
     @Embedded
