@@ -18,21 +18,21 @@ public class SalesOrderController {
     @Autowired
     SalesOrderRepository salesOrderRepository;
 
-    @RequestMapping(
-        value = "salesOrders/",
-        method = RequestMethod.POST,
-        produces = "application/json;charset=UTF-8"
-    )
-    public SalesOrder createSalesOrder(
-        HttpServletRequest request,
-        HttpServletResponse response,
-        @RequestBody SalesOrder salesOrder
-    ) throws Exception {
-        System.out.println("##### /salesOrder/createSalesOrder  called #####");
-        salesOrder.createSalesOrder(createSalesOrdercommand);
-        salesOrderRepository.save(salesOrder);
-        return salesOrder;
-    }
+    // @RequestMapping(
+    //     value = "salesOrders/",
+    //     method = RequestMethod.POST,
+    //     produces = "application/json;charset=UTF-8"
+    // )
+    // public SalesOrder createSalesOrder(
+    //     HttpServletRequest request,
+    //     HttpServletResponse response,
+    //     @RequestBody SalesOrder salesOrder
+    // ) throws Exception {
+    //     System.out.println("##### /salesOrder/createSalesOrder  called #####");
+    //     salesOrder.createSalesOrder(createSalesOrdercommand);
+    //     salesOrderRepository.save(salesOrder);
+    //     return salesOrder;
+    // }
 
     @RequestMapping(
         value = "salesOrders/{id}//sales/update",

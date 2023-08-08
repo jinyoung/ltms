@@ -9,6 +9,6 @@ public class CreateSalesOrderCommand {
 
     private String salesPerson;
     private String companyId;
-    private SalesType salesType;
+    private String salesType;
     private List<SalesItem> salesItems;
 }
