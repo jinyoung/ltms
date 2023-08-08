@@ -29,14 +29,14 @@ spring:
       bindings:
         event-in:
           group: delivery
-//<<< EDA / Topic Name
+#<<< EDA / Topic Name
           destination: newtest
-//>>> EDA / Topic Name
+#>>> EDA / Topic Name
           contentType: application/json
         event-out:
-//<<< EDA / Topic Name
+#<<< EDA / Topic Name
           destination: newtest
-//>>> EDA / Topic Name
+#>>> EDA / Topic Name
           contentType: application/json
 
 logging:
