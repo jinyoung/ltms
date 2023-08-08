@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+
+import org.springframework.beans.BeanUtils;
+
+import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import lombok.Data;
 import newtest.SalesApplication;
 import newtest.domain.SalesOrderCreated;
@@ -68,7 +72,6 @@ public class SalesOrder {
         //implement business logic here:
 
         Produced produced = new Produced(this);
-        produced.set(produceCommand.get());
         produced.publishAfterCommit();
     }
 }
