@@ -14,6 +14,5 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 public class ProductId {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 }

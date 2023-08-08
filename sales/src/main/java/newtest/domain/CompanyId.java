@@ -14,6 +14,5 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 public class CompanyId {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 }
