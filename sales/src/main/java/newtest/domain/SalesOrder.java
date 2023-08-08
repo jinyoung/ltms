@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 import newtest.SalesApplication;
-import newtest.domain.Produced;
 import newtest.domain.SalesOrderCreated;
 import newtest.domain.SalesOrderDeleted;
 import newtest.domain.SalesOrderUpdated;
@@ -39,9 +38,6 @@ public class SalesOrder {
 
         SalesOrderDeleted salesOrderDeleted = new SalesOrderDeleted(this);
         salesOrderDeleted.publishAfterCommit();
-
-        Produced produced = new Produced(this);
-        produced.publishAfterCommit();
     }
 
     @PrePersist
@@ -66,5 +62,13 @@ public class SalesOrder {
     ) {
         //implement business logic here:
 
+    }
+
+    public void produce() {
+        //implement business logic here:
+
+        Produced produced = new Produced(this);
+        produced.set(produceCommand.get());
+        produced.publishAfterCommit();
     }
 }

@@ -44,13 +44,6 @@
                 <v-btn
                     color="primary"
                     text
-                    @click="save"
-                >
-                    
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
                     @click="remove"
                     v-if="!editMode"
                 >
@@ -96,6 +89,14 @@
                     @updateSalesOrder="updateSalesOrder"
                 ></UpdateSalesOrderCommand>
             </v-dialog>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="produce"
+            >
+                Produce
+            </v-btn>
         </v-card-actions>
 
         <v-snackbar
@@ -278,6 +279,25 @@
             },
             closeUpdateSalesOrder() {
                 this.updateSalesOrderDiagram = false;
+            },
+            async produce() {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['produce'].href))
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
             },
         },
     }
