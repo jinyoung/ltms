@@ -40,7 +40,7 @@
         data: () => ({
             editMode: true,
             value: {
-                apiPath: 'companies/search/Query',
+                apiPath: 'companies/search/findByCompanyQuery',
                 parameters: {}
             },
         }),

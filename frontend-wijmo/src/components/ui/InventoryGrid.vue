@@ -31,12 +31,14 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'name','industry','foundedDate','code',]" />
+            <wj-flex-grid-filter :filterColumns="[RowHeader,'stock','productId',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
-            <wj-flex-grid-column binding="name" header="이름" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="industry" header="산업" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="foundedDate" header="설립일자" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="code" header="Code" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="stock" header="Stock" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="productId" header="상품정보" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <ProductId :editMode="false" v-model="cell.item.productId"></ProductId>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
         </wj-flex-grid>
         <v-col>
             <v-dialog
@@ -52,7 +54,7 @@
                             class="elevation-0"
                             height="50px"
                         >
-                            <div style="color:white; font-size:17px; font-weight:700;">회사 등록</div>
+                            <div style="color:white; font-size:17px; font-weight:700;">Inventory 등록</div>
                             <v-spacer></v-spacer>
                             <v-icon
                                 color="white"
@@ -61,7 +63,7 @@
                             >mdi-close</v-icon>
                         </v-toolbar>
                         <v-card-text>
-                            <Company :offline="offline"
+                            <Inventory :offline="offline"
                                 :isNew="!itemToEdit"
                                 :editMode="true"
                                 v-model="itemToEdit"
@@ -96,17 +98,17 @@
 </template>
 
 <script>
-import Company from '../Company.vue'
+import Inventory from '../Inventory.vue'
 import BaseGrid from '../base-ui/BaseGrid'
 
 export default {
-    name: 'companyGrid',
+    name: 'inventoryGrid',
     mixins:[BaseGrid],
     components:{
-        Company,
+        Inventory,
     },
     data: () => ({
-        path: 'companies',
+        path: 'inventories',
     }),
     methods:{
     }

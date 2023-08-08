@@ -5,12 +5,12 @@
 ### Cluster에 basic Service를 생성하려면 아래의 명령어를 실행하세요.
 
 ```
-$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230808%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230808T045540Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=075ce1d1f041667b070fd790d26544e4fef6c45eba14c8d2cccbc5c402950cf0
+$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230808%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230808T055826Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=17be72fdea0a6199bb6cd2554a34a8f234c0086b814177bad40561d9b6dc7991
 ```
 - Yaml 파일에 명시된 스펙으로 basic Service를 생성합니다.  
 
 ```
-$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230808%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230808T045540Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=075ce1d1f041667b070fd790d26544e4fef6c45eba14c8d2cccbc5c402950cf0
+$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230808%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230808T055826Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=17be72fdea0a6199bb6cd2554a34a8f234c0086b814177bad40561d9b6dc7991
 ```
 - Create가 된 상태라면 basic Service의 수정이 이루어지고, Create가 된 상태가 아니라면 basic Service를 Create 해주는 명령어입니다.
 #
