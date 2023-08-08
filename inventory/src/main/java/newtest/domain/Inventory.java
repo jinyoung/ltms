@@ -45,13 +45,14 @@ public class Inventory {
 
             Map productIdMap = (Map)item.get("productId");
 
-            ProductId id = new ProductId((Long)productIdMap.get("id"));
+            ProductId id = new ProductId(((Number)productIdMap.get("id")).longValue());
             Optional<Inventory> finding = repository().findById(id);
             if(finding.isPresent()){
                 inventory = finding.get();
-            }
+            }else 
+                inventory.setProductId(id);
 
-            inventory.setStock(inventory.getStock() + (Long)item.get("qty"));
+            inventory.setStock(inventory.getStock() + ((Number)item.get("qty")).longValue());
             repository().save(inventory);
     
         });

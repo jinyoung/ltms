@@ -14,11 +14,11 @@ docker-compose up
 cd kafka
 docker-compose exec -it kafka /bin/bash
 cd /bin
-./kafka-console-consumer --bootstrap-server localhost:9092 --topic
+./kafka-console-consumer --bootstrap-server localhost:9092 --topic newtest
 ```
 
 ## Run the backend micro-services
-See the README.md files inside the each microservices directory:
+Run the command "mvn spring-boot:run" inside the each microservices directory:
 
 - basic
 - sales
@@ -36,33 +36,24 @@ mvn spring-boot:run
 ## Test by API
 
 ```
-http :8088/companies code="ue" name="유엔진"
-http :8088/salesOrders companyId[id]="ue" salesOrderNumber="1" salesItems[0][productId][id]="1" salesItems[0][qty]=5
+http :8082/companies code="ue" name="유엔진" industry="SW" foundedDate="2017-03-15"
+
+http :8083/salesOrders companyId[id]="ue" salesOrderNumber="1" salesItems[0][productId][id]="1" salesItems[0][qty]=5
+
+http :8083/salesOrders companyId[id]="ue" salesOrderNumber="2" salesItems[0][productId][id]="2" salesItems[0][qty]=3  salesItems[1][productId][id]="1" salesItems[1][qty]=3
+
+http :8084/inventories    # returns no value
+
+http PUT http://localhost:8083/salesOrders/1/produce
+
+http :8084/inventories    # returns the stock of product #1 is 5
+
+http PUT http://localhost:8083/salesOrders/2/produce
+
+http :8084/inventories    # returns the stock of product #1 and #2 are 8 and 3
 
 ```
 
-
-
-- basic
-```
- http :8088/companies name="name" industry="industry" foundedDate="foundedDate" code="code" 
- http :8088/products id="id" stock="stock" name="name" 
-```
-- sales
-```
- http :8088/salesOrders salesOrderNumber="salesOrderNumber" salesPerson="salesPerson" salesType="salesType" salesItems="salesItems" companyId="companyId" 
-```
-- inventory
-```
-```
-- delivery
-```
-```
-- inventory
-```
- http :8088/deliveries 
- http :8088/inventories id="id" stock="stock" productId="productId" 
-```
 
 
 ## Run the frontend
