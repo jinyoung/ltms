@@ -34,7 +34,7 @@
 
 <script>
     export default {
-        name: 'CompanyQueryQuery',
+        name: 'CompanyQuery',
         components:{},
         props: {},
         data: () => ({

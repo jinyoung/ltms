@@ -17,7 +17,6 @@
 
         <v-card-text>
             <Number label="" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
-            <ProductId offline label="" v-model="value.productId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>

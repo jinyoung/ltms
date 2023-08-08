@@ -29,10 +29,14 @@ spring:
       bindings:
         event-in:
           group: basic
+//<<< EDA / Topic Name
           destination: newtest
+//>>> EDA / Topic Name
           contentType: application/json
         event-out:
+//<<< EDA / Topic Name
           destination: newtest
+//>>> EDA / Topic Name
           contentType: application/json
 
 logging:

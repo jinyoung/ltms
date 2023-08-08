@@ -10,6 +10,7 @@ import newtest.InventoryApplication;
 @Entity
 @Table(name = "Delivery_table")
 @Data
+//<<< DDD / Aggregate Root
 public class Delivery {
 
     public static DeliveryRepository repository() {
@@ -19,3 +20,4 @@ public class Delivery {
         return deliveryRepository;
     }
 }
+//>>> DDD / Aggregate Root

@@ -11,7 +11,7 @@ docker-compose up
 ```
 - Check the Kafka messages:
 ```
-cd kafka
+cd infra
 docker-compose exec -it kafka /bin/bash
 cd /bin
 ./kafka-console-consumer --bootstrap-server localhost:9092 --topic
@@ -51,8 +51,9 @@ mvn spring-boot:run
 ```
 - inventory
 ```
+ http :8088/inventories id="id" stock="stock" 
  http :8088/deliveries 
- http :8088/inventories id="id" stock="stock" productId="productId" 
+ http :8088/inventories id="id" stock="stock" productId="productId" productId="productId" 
 ```
 
 

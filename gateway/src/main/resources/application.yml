@@ -7,6 +7,7 @@ spring:
   profiles: default
   cloud:
     gateway:
+//<<< API Gateway / Routes
       routes:
         - id: basic
           uri: http://localhost:8082
@@ -27,11 +28,12 @@ spring:
         - id: inventory
           uri: http://localhost:8086
           predicates:
-            - Path=/deliveries/**, /inventories/**, 
+            - Path=/inventories/**, /deliveries/**, /inventories/**, 
         - id: frontend
           uri: http://localhost:8080
           predicates:
             - Path=/**
+//>>> API Gateway / Routes
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -70,7 +72,7 @@ spring:
         - id: inventory
           uri: http://inventory:8080
           predicates:
-            - Path=/deliveries/**, /inventories/**, 
+            - Path=/inventories/**, /deliveries/**, /inventories/**, 
         - id: frontend
           uri: http://frontend:8080
           predicates:
