@@ -57,4 +57,27 @@ public class SalesOrderController {
         salesOrderRepository.save(salesOrder);
         return salesOrder;
     }
+
+    @RequestMapping(
+        value = "salesOrders/{id}/produce",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8"
+    )
+    public SalesOrder produce(
+        @PathVariable(value = "id") String id,
+        HttpServletRequest request,
+        HttpServletResponse response
+    ) throws Exception {
+        System.out.println("##### /salesOrder/produce  called #####");
+        Optional<SalesOrder> optionalSalesOrder = salesOrderRepository.findById(
+            id
+        );
+
+        optionalSalesOrder.orElseThrow(() -> new Exception("No Entity Found"));
+        SalesOrder salesOrder = optionalSalesOrder.get();
+        salesOrder.produce();
+
+        salesOrderRepository.save(salesOrder);
+        return salesOrder;
+    }
 }
