@@ -6,14 +6,13 @@ Vue.use(Router);
 
 
 import CompanyManager from "./components/ui/CompanyGrid"
-import ProductManager from "./components/ui/ProductGrid"
+//import ProductManager from "./components/ui/ProductGrid"
 
 import SalesOrderManager from "./components/ui/SalesOrderGrid"
 
 
 
-import DeliveryManager from "./components/ui/DeliveryGrid"
-import InventoryManager from "./components/ui/InventoryGrid"
+//import InventoryManager from "./components/ui/InventoryGrid"
 
 
 export default new Router({
@@ -25,11 +24,11 @@ export default new Router({
                 name: 'CompanyManager',
                 component: CompanyManager
             },
-            {
-                path: '/products',
-                name: 'ProductManager',
-                component: ProductManager
-            },
+            // {
+            //     path: '/products',
+            //     name: 'ProductManager',
+            //     component: ProductManager
+            // },
 
             {
                 path: '/salesOrders',
@@ -39,16 +38,16 @@ export default new Router({
 
 
 
-            {
-                path: '/deliveries',
-                name: 'DeliveryManager',
-                component: DeliveryManager
-            },
-            {
-                path: '/inventories',
-                name: 'InventoryManager',
-                component: InventoryManager
-            },
+            // {
+            //     path: '/deliveries',
+            //     name: 'DeliveryManager',
+            //     component: DeliveryManager
+            // },
+            // {
+            //     path: '/inventories',
+            //     name: 'InventoryManager',
+            //     component: InventoryManager
+            // },
 
 
 
