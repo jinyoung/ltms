@@ -18,4 +18,14 @@ public class PolicyHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
+
+
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Produced'")
+    public void wheneverProduced_updateStock(@Payload Produced produced){
+
+        Inventory.updateInventory(produced);
+
+
+    }
+
 }
