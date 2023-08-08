@@ -15,6 +15,8 @@ import SalesSalesOrderDetail from "./components/listers/SalesSalesOrderDetail"
 
 
 
+import InventoryInventoryManager from "./components/listers/InventoryInventoryCards"
+import InventoryInventoryDetail from "./components/listers/InventoryInventoryDetail"
 import InventoryDeliveryManager from "./components/listers/InventoryDeliveryCards"
 import InventoryDeliveryDetail from "./components/listers/InventoryDeliveryDetail"
 import InventoryInventoryManager from "./components/listers/InventoryInventoryCards"
@@ -59,6 +61,16 @@ export default new Router({
 
 
 
+            {
+                path: '/inventories/inventories',
+                name: 'InventoryInventoryManager',
+                component: InventoryInventoryManager
+            },
+            {
+                path: '/inventories/inventories/:id',
+                name: 'InventoryInventoryDetail',
+                component: InventoryInventoryDetail
+            },
             {
                 path: '/inventories/deliveries',
                 name: 'InventoryDeliveryManager',

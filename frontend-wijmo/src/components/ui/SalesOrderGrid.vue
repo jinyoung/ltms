@@ -38,6 +38,7 @@
             <wj-flex-grid-column binding="salesType" header="수주 종류" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesItems" header="수주 세부 항목" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
+        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
         <v-col>
             <v-dialog
                 v-model="openDialog"

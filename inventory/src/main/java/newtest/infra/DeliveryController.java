@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 //<<< Clean Arch / Inbound Adaptor
 
 @RestController
-// @RequestMapping(value="/products")
+// @RequestMapping(value="/deliveries")
 @Transactional
-public class ProductController {
+public class DeliveryController {
 
     @Autowired
-    ProductRepository productRepository;
+    DeliveryRepository deliveryRepository;
 }
 //>>> Clean Arch / Inbound Adaptor

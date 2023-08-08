@@ -158,15 +158,20 @@ export default {
             }
             return '';
         },
-        append(){
-            this.tick = false
-            this.newValue = {}
-            if(!this.value) {
-                this.value = []
+        append() {
+            this.tick = false;
+
+            if (!this.value) {
+                this.value = [];
             }
-            this.value.push({ ...this.itemToEdit });
+
+            const newItem = { ...this.itemToEdit };
+
+            this.value.push(newItem);
+
             this.$emit('input', this.value);
-            this.$nextTick(function() {
+
+            this.$nextTick(() => {
                 this.tick = true;
             });
         },

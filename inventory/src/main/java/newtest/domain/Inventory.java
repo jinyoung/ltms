@@ -13,6 +13,7 @@ import newtest.InventoryApplication;
 @Entity
 @Table(name = "Inventory_table")
 @Data
+//<<< DDD / Aggregate Root
 public class Inventory {
 
     //@Id
@@ -22,9 +23,6 @@ public class Inventory {
 
     private Long stock;
 
-    
-
-
     public static InventoryRepository repository() {
         InventoryRepository inventoryRepository = InventoryApplication.applicationContext.getBean(
             InventoryRepository.class
@@ -32,10 +30,8 @@ public class Inventory {
         return inventoryRepository;
     }
 
-    public static void updateInventory(Produced produced) {
-
-
-
+    //<<< Clean Arch / Port Method
+    public static void addToInventory(Produced produced) {
         //implement business logic here:
 
         produced.getSalesItems().forEach(item -> {
@@ -70,4 +66,7 @@ public class Inventory {
         */
 
     }
+    //>>> Clean Arch / Port Method
+
 }
+//>>> DDD / Aggregate Root

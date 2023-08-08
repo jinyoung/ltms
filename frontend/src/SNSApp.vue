@@ -73,6 +73,17 @@
 
                     <v-list-item
                         class="px-2"
+                        key="inventories"
+                        to="/inventories/inventories"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Inventory
+                    </v-list-item>
+
+                    <v-list-item
+                        class="px-2"
                         key="deliveries"
                         to="/inventories/deliveries"
                         @click="changeUrl()"
@@ -191,6 +202,13 @@ export default {
                 description: '수주에 대한 설명', 
                 key: 'salesOrders', 
                 route: '/sales/salesOrders',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Inventory', 
+                description: '', 
+                key: 'inventories', 
+                route: '/inventories/inventories',
                 ImageUrl: '',
             },
             { 

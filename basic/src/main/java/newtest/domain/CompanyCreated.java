@@ -6,6 +6,7 @@ import lombok.*;
 import newtest.domain.*;
 import newtest.infra.AbstractEvent;
 
+//<<< DDD / Domain Event
 @Data
 @ToString
 public class CompanyCreated extends AbstractEvent {
@@ -23,3 +24,4 @@ public class CompanyCreated extends AbstractEvent {
         super();
     }
 }
+//>>> DDD / Domain Event

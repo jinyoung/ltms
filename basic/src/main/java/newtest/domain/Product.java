@@ -10,6 +10,7 @@ import newtest.BasicApplication;
 @Entity
 @Table(name = "Product_table")
 @Data
+//<<< DDD / Aggregate Root
 public class Product {
 
     @Id
@@ -27,3 +28,4 @@ public class Product {
         return productRepository;
     }
 }
+//>>> DDD / Aggregate Root

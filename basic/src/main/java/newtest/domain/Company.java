@@ -13,6 +13,7 @@ import newtest.domain.CompanyUpdated;
 @Entity
 @Table(name = "Company_table")
 @Data
+//<<< DDD / Aggregate Root
 public class Company {
 
     private String name;
@@ -49,8 +50,12 @@ public class Company {
         return companyRepository;
     }
 
+    //<<< Clean Arch / Port Method
     public void updateCompany(UpdateCompanyCommand updateCompanyCommand) {
         //implement business logic here:
 
     }
+    //>>> Clean Arch / Port Method
+
 }
+//>>> DDD / Aggregate Root

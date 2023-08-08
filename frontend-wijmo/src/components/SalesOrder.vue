@@ -7,6 +7,7 @@
         <div class="label-title">수주 종류</div>
         <String label="입력하세요." v-model="value.salesType" :editMode="editMode"/>
         <CompanyId offline label="CompanyId" v-model="value.companyId" :editMode="editMode" @change="change"/>
+        <SalesItemsDetailGrid offline v-model="value.salesItems" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
         <v-layout row justify-end>

@@ -17,6 +17,7 @@ import newtest.domain.SalesOrderUpdated;
 @Entity
 @Table(name = "SalesOrder_table")
 @Data
+//<<< DDD / Aggregate Root
 public class SalesOrder {
 
     @Id
@@ -54,6 +55,7 @@ public class SalesOrder {
         return salesOrderRepository;
     }
 
+    //<<< Clean Arch / Port Method
     public void createSalesOrder(
         CreateSalesOrderCommand createSalesOrderCommand
     ) {
@@ -61,6 +63,8 @@ public class SalesOrder {
 
     }
 
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
     public void updateSalesOrder(
         UpdateSalesOrderCommand updateSalesOrderCommand
     ) {
@@ -68,10 +72,15 @@ public class SalesOrder {
 
     }
 
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
     public void produce() {
         //implement business logic here:
 
         Produced produced = new Produced(this);
         produced.publishAfterCommit();
     }
+    //>>> Clean Arch / Port Method
+
 }
+//>>> DDD / Aggregate Root

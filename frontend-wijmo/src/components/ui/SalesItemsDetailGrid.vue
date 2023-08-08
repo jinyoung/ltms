@@ -16,8 +16,8 @@
             style="margin-top:10px; max-height:65vh;"
         >
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
-            <wj-flex-grid-column binding="qty" header="Qty" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="qty" header="Qty" width="2*" :isReadOnly="!editMode" align="center" />
+            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
         </wj-flex-grid>
 
         <SalesItem v-if="editMode"

@@ -112,7 +112,7 @@
             me.newValue = {
                 'name': '',
                 'industry': '',
-                'foundedDate': '2023-08-08',
+                'foundedDate': '2023-08-09',
                 'code': '',
             }
         },

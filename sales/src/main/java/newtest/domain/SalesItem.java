@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
+//<<< DDD / Value Object
 @Embeddable
 @Data
 @AllArgsConstructor
@@ -21,3 +22,4 @@ public class SalesItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private ProductId productId;
 }
+//>>> DDD / Value Object

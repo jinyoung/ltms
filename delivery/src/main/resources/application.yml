@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: basic
+    name: delivery
 ---
 
 spring:
@@ -28,7 +28,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: basic
+          group: delivery
 //<<< EDA / Topic Name
           destination: newtest
 //>>> EDA / Topic Name
@@ -46,7 +46,7 @@ logging:
 
 
 server:
-  port: 8082
+  port: 8085
 
 ---
 
@@ -67,7 +67,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: basic
+          group: delivery
           destination: newtest
           contentType: application/json
         event-out:

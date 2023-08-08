@@ -3,6 +3,7 @@
         <div class="label-title">Stock</div>
         <Number label="입력하세요." v-model="value.stock" :editMode="editMode"/>
         <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
+        <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
         <v-layout row justify-end>
