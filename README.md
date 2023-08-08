@@ -34,6 +34,15 @@ mvn spring-boot:run
 ```
 
 ## Test by API
+
+```
+http :8088/companies code="ue" name="유엔진"
+http :8088/salesOrders companyId[id]="ue" salesOrderNumber="1" salesItems[0][productId][id]="1" salesItems[0][qty]=5
+
+```
+
+
+
 - basic
 ```
  http :8088/companies name="name" industry="industry" foundedDate="foundedDate" code="code" 

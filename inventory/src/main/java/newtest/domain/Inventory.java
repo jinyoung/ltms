@@ -3,6 +3,9 @@ package newtest.domain;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
 import javax.persistence.*;
 import lombok.Data;
 import newtest.InventoryApplication;
@@ -12,14 +15,15 @@ import newtest.InventoryApplication;
 @Data
 public class Inventory {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @EmbeddedId
+    private ProductId productId; //   private Long id;
 
     private Long stock;
 
-    @Embedded
-    private ProductId productId;
+    
+
 
     public static InventoryRepository repository() {
         InventoryRepository inventoryRepository = InventoryApplication.applicationContext.getBean(
@@ -29,13 +33,29 @@ public class Inventory {
     }
 
     public static void updateInventory(Produced produced) {
+
+
+
         //implement business logic here:
 
-        /** Example 1:  new item 
-        Inventory inventory = new Inventory();
-        repository().save(inventory);
+        produced.getSalesItems().forEach(item -> {
 
-        */
+            Inventory inventory = new Inventory();
+            inventory.setStock(0L);
+
+            Map productIdMap = (Map)item.get("productId");
+
+            ProductId id = new ProductId((Long)productIdMap.get("id"));
+            Optional<Inventory> finding = repository().findById(id);
+            if(finding.isPresent()){
+                inventory = finding.get();
+            }
+
+            inventory.setStock(inventory.getStock() + (Long)item.get("qty"));
+            repository().save(inventory);
+    
+        });
+
 
         /** Example 2:  finding and process
         

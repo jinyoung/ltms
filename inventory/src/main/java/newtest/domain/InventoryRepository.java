@@ -9,4 +9,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
     path = "inventories"
 )
 public interface InventoryRepository
-    extends PagingAndSortingRepository<Inventory, Long> {}
+    extends PagingAndSortingRepository<Inventory, ProductId> {}

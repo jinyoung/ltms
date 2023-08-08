@@ -1,5 +1,6 @@
 package newtest.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -12,8 +13,7 @@ import org.springframework.beans.BeanUtils;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductId {
+public class ProductId implements Serializable{
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 }

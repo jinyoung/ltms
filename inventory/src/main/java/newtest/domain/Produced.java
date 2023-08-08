@@ -12,6 +12,6 @@ public class Produced extends AbstractEvent {
     private String salesOrderNumber;
     private String salesPerson;
     private String salesType;
-    private Object salesItems;
+    private List<Map> salesItems;
     private Object companyId;
 }
