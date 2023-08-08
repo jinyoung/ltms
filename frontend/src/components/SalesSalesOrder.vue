@@ -19,6 +19,7 @@
             <String v-if="editMode" label="수주 번호" v-model="value.salesOrderNumber" :editMode="editMode" :inputUI="'TEXT'"/>
             <String label="수주 담당자" v-model="value.salesPerson" :editMode="editMode" :inputUI="'TEXT'"/>
             <String label="수주 종류" v-model="value.salesType" :editMode="editMode" :inputUI="'SELECT'"/>
+            <List&lt;SalesItem&gt; offline label="수주 세부 항목" v-model="value.salesItems" :editMode="editMode" @change="change"/>
             <SalesItemManager offline label="수주 세부 항목" v-model="value.salesItems" :editMode="editMode" @change="change"/>
             <CompanyId offline label="" v-model="value.companyId" :editMode="editMode" @change="change"/>
         </v-card-text>

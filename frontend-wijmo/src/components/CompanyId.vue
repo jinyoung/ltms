@@ -17,7 +17,7 @@ export default {
     components:{
     },
     data: () => ({
-        path: 'companies/',
+        path: 'companies',
     }),
     watch: {
         value(val){

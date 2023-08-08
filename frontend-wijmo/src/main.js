@@ -7,9 +7,7 @@ import router from './router';
 import ExcelExportButton from "./components/base-ui/export-btn.vue";
 Vue.config.productionTip = false;
 Vue.component("excel-export-button", ExcelExportButton);
-Vue.prototype.$Vue = Vue;
-
-const axios = require("axios").default;
+Vue.prototype.$Vue = Vue;const axios = require("axios").default;
 require('./style.css');
 
 // backend host url
@@ -76,3 +74,5 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount("#app");
+
+

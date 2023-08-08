@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BasePicker v-if="editMode" searchApiPath="products/search/Query" searchParameterName="" idField="" nameField="" path="products" :label="label" v-model="value" @selected="pick" :editMode="editMode" />
+        <BasePicker v-if="editMode" searchApiPath="basic.products/search/Query" searchParameterName="" idField="id" nameField="" path="basic.products" :label="label" v-model="value" @selected="pick" :editMode="editMode" />
         <div v-else>
             <span>{{ value && value.name ? value.name : '' }}</span>
         </div>
@@ -17,7 +17,7 @@ export default {
     components:{
     },
     data: () => ({
-        path: 'products/ProductIds',
+        path: 'basic.products',
     }),
     watch: {
         value(val){

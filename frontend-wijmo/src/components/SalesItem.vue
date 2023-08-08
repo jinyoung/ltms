@@ -25,7 +25,7 @@ export default {
     components:{
     },
     data: () => ({
-        path: '/SalesItems',
+        path: 'SalesItems',
     }),
     watch: {
         value(val){
