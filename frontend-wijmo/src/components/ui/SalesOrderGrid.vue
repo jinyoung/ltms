@@ -38,8 +38,6 @@
             <wj-flex-grid-column binding="salesType" header="SalesType" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
         <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
-        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
-        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
         <v-col>
             <v-dialog
                 v-model="openDialog"
