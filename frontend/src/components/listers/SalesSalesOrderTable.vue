@@ -69,7 +69,6 @@
                     { text: "salesOrderNumber", value: "salesOrderNumber" },
                     { text: "salesPerson", value: "salesPerson" },
                     { text: "salesType", value: "salesType" },
-                    { text: "salesItems", value: "salesItems" },
                     { text: "companyId", value: "companyId" },
                 ],
             salesOrder : [],
@@ -91,7 +90,6 @@
                 'salesOrderNumber': '',
                 'salesPerson': '',
                 'salesType': '',
-                'salesItems': [],
                 'companyId': {},
             }
         },

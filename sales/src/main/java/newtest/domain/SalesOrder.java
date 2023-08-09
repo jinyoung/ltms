@@ -25,7 +25,7 @@ public class SalesOrder {
 
     private String salesPerson;
 
-    private String salesType;
+    private SalesType salesType;
 
     @ElementCollection
     private List<SalesItem> salesItems;
