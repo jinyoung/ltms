@@ -31,12 +31,15 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','companyId',]" />
+            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','salesItems','companyId','salesItems','salesItems',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="salesOrderNumber" header="수주 번호" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesPerson" header="수주 담당자" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesType" header="SalesType" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
+        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
+        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
+        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
         <v-col>
             <v-dialog
                 v-model="openDialog"
@@ -106,7 +109,13 @@ export default {
     },
     data: () => ({
         path: 'salesOrders',
+        hasRole: false,
     }),
+    computed:{
+        hasRole(){
+            return this.userRoles.includes('SalesPerson')
+        }
+    },
     methods:{
     }
 }

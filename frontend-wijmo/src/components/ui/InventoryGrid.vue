@@ -109,7 +109,13 @@ export default {
     },
     data: () => ({
         path: 'inventories',
+        hasRole: false,
     }),
+    computed:{
+        hasRole(){
+            return this.userRoles.includes('')
+        }
+    },
     methods:{
     }
 }
