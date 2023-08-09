@@ -24,7 +24,7 @@ public class PolicyHandler {
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Produced'")
     public void wheneverProduced_updateStock(@Payload Produced produced){
 
-        Inventory.updateInventory(produced);
+        Inventory.addToInventory(produced);
 
 
     }

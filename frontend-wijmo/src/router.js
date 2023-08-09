@@ -12,13 +12,8 @@ import SalesOrderManager from "./components/ui/SalesOrderGrid"
 
 
 
-<<<<<<< HEAD
-//import InventoryManager from "./components/ui/InventoryGrid"
-=======
 import InventoryManager from "./components/ui/InventoryGrid"
 import DeliveryManager from "./components/ui/DeliveryGrid"
-import InventoryManager from "./components/ui/InventoryGrid"
->>>>>>> origin/template
 
 
 export default new Router({
