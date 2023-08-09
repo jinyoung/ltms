@@ -69,7 +69,10 @@
                     { text: "salesOrderNumber", value: "salesOrderNumber" },
                     { text: "salesPerson", value: "salesPerson" },
                     { text: "salesType", value: "salesType" },
+                    { text: "salesItems", value: "salesItems" },
                     { text: "companyId", value: "companyId" },
+                    { text: "salesItems", value: "salesItems" },
+                    { text: "salesItems", value: "salesItems" },
                 ],
             salesOrder : [],
             newValue: {},
@@ -90,7 +93,10 @@
                 'salesOrderNumber': '',
                 'salesPerson': '',
                 'salesType': '',
+                'salesItems': [],
                 'companyId': {},
+                'salesItems': [],
+                'salesItems': [],
             }
         },
         methods: {

@@ -23,6 +23,9 @@ public class SalesOrder {
 
     private SalesType salesType;
 
+    @ElementCollection
+    private List<SalesItems> salesItems;
+
     @Embedded
     private CompanyId companyId;
 

@@ -103,7 +103,13 @@ export default {
     },
     data: () => ({
         path: 'deliveries',
+        hasRole: false,
     }),
+    computed:{
+        hasRole(){
+            return this.userRoles.includes('')
+        }
+    },
     methods:{
     }
 }

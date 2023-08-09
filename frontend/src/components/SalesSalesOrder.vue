@@ -19,7 +19,13 @@
             <String v-if="editMode" label="수주 번호" v-model="value.salesOrderNumber" :editMode="editMode" :inputUI="'TEXT'"/>
             <String label="수주 담당자" v-model="value.salesPerson" :editMode="editMode" :inputUI="'TEXT'"/>
             <SalesType offline label="" v-model="value.salesType" :editMode="editMode" @change="change"/>
+            <List&lt;SalesItems&gt; offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
+            <SalesItemsManager offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
             <CompanyId offline label="" v-model="value.companyId" :editMode="editMode" @change="change"/>
+            <List&lt;SalesItems&gt; offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
+            <SalesItemsManager offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
+            <List&lt;SalesItems&gt; offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
+            <SalesItemsManager offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>

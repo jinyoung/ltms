@@ -107,7 +107,13 @@ export default {
     },
     data: () => ({
         path: 'companies',
+        hasRole: false,
     }),
+    computed:{
+        hasRole(){
+            return this.userRoles.includes('Admin')
+        }
+    },
     methods:{
     }
 }
