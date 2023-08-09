@@ -21,10 +21,7 @@ public class SalesOrder {
 
     private String salesPerson;
 
-    private String salesType;
-
-    @OneToMany
-    private List<SalesItem> salesItems;
+    private SalesType salesType;
 
     @Embedded
     private CompanyId companyId;
