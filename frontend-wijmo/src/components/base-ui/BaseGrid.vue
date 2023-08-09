@@ -117,7 +117,7 @@ export default {
                     }
                 }
             } catch(e) {
-                this.$mainApp.reportError(e)
+                this.$mainApp.error(e)
                    
             }
         },

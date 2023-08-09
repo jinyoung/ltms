@@ -86,7 +86,7 @@
                     location.reload()
 
                 } catch(e) {
-                    this.$mainApp.reportError(e)
+                    this.$mainApp.error(e)
                    
                 }
                 
@@ -102,7 +102,7 @@
                     this.$emit('input', this.value);
                     this.$emit('delete', this.value);
                 } catch(e) {
-                    this.$mainApp.reportError(e)
+                    this.$mainApp.error(e)
                    
                 }
             },

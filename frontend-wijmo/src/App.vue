@@ -8,7 +8,7 @@
             v-model="snackbar.status"
             :top="true"
             :timeout="snackbar.timeout"
-            color="error"
+            :color="snackbar.color"
         >
             {{ snackbar.text }}
             <v-btn dark text @click="snackbar.status = false">
@@ -397,7 +397,8 @@ export default {
         snackbar: {
                 status: false,
                 timeout: 5000,
-                text: ''
+                text: '',
+                color: 'info'
             },
     }),
     
@@ -425,13 +426,20 @@ export default {
             this.urlPath = null;
         },
 
-        reportError(e){
+        error(e){
             this.snackbar.status = true
+            this.snackbar.color= 'error'
             if(e.response && e.response.data.message) {
                 this.snackbar.text = e.response.data.message
             } else {
                 this.snackbar.text = e
             }
+        },
+
+        success(msg){
+            this.snackbar.color= 'info'
+            this.snackbar.status = true
+            this.snackbar.text = msg
         }
     }
 };

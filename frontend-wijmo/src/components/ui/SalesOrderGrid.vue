@@ -119,7 +119,14 @@ export default {
     },
     methods:{
         produce(){
-            this.repository.invoke(this.getSelectedItem(), "produce", )
+            try{
+
+                this.repository.invoke(this.getSelectedItem(), "produce", null)
+                this.$mainApp.success("생산완료가 성공적으로 처리되었습니다.")
+
+            }catch(e){
+                this.$mainApp.error(e)
+            }
         }
     }
 }
