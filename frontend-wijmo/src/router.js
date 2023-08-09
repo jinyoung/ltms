@@ -13,7 +13,6 @@ import SalesOrderManager from "./components/ui/SalesOrderGrid"
 
 
 import InventoryManager from "./components/ui/InventoryGrid"
-import DeliveryManager from "./components/ui/DeliveryGrid"
 
 
 export default new Router({
@@ -43,11 +42,6 @@ export default new Router({
                 path: '/inventories',
                 name: 'InventoryManager',
                 component: InventoryManager
-            },
-            {
-                path: '/deliveries',
-                name: 'DeliveryManager',
-                component: DeliveryManager
             },
             {
                 path: '/inventories',
