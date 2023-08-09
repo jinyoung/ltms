@@ -7,6 +7,9 @@
                 <v-btn  @click="editSelectedRow" small color="primary">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
+                <v-btn @click="produce" small color="primary">
+                    <v-icon small>mdi-minus-circle-outline</v-icon>생산완료
+                </v-btn>
                 <v-btn @click="deleteSelectedRows" small color="primary">
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
@@ -115,6 +118,9 @@ export default {
         }
     },
     methods:{
+        produce(){
+            this.repository.invoke(this.getSelectedItem(), "produce", )
+        }
     }
 }
 </script>

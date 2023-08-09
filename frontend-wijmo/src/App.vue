@@ -3,6 +3,19 @@
 <template>
     <v-app id="inspire">
         <div>
+
+        <v-snackbar
+            v-model="snackbar.status"
+            :top="true"
+            :timeout="snackbar.timeout"
+            color="error"
+        >
+            {{ snackbar.text }}
+            <v-btn dark text @click="snackbar.status = false">
+                Close
+            </v-btn>
+        </v-snackbar>
+
             <v-app-bar app clipped-left flat>
                 <v-toolbar-title>
                     <span class="second-word font uppercase"
@@ -370,6 +383,8 @@
 
 <script>
 
+import Vue from 'vue'
+
 export default {
     name: "App",
 
@@ -379,6 +394,11 @@ export default {
         components: [],
         sideBar: true,
         urlPath: null,
+        snackbar: {
+                status: false,
+                timeout: 5000,
+                text: ''
+            },
     }),
     
     async created() {
@@ -390,6 +410,7 @@ export default {
     mounted() {
         var me = this;
         me.components = this.$ManagerLists;
+        Vue.prototype.$mainApp = this
     },
 
     methods: {
@@ -403,6 +424,15 @@ export default {
         goHome() {
             this.urlPath = null;
         },
+
+        reportError(e){
+            this.snackbar.status = true
+            if(e.response && e.response.data.message) {
+                this.snackbar.text = e.response.data.message
+            } else {
+                this.snackbar.text = e
+            }
+        }
     }
 };
 </script>

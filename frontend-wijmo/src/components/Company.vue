@@ -20,17 +20,6 @@
             </v-btn>
         </v-layout>
 
-        <v-snackbar
-            v-model="snackbar.status"
-            :top="true"
-            :timeout="snackbar.timeout"
-            color="error"
-        >
-            {{ snackbar.text }}
-            <v-btn dark text @click="snackbar.status = false">
-                Close
-            </v-btn>
-        </v-snackbar>
     </div>
 </template>
 
