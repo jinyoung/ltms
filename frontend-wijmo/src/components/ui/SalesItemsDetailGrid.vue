@@ -17,7 +17,12 @@
         >
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="qty" header="Qty" width="2*" :isReadOnly="!editMode" align="center" />
-            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
+            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center">
+                 <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <ProductId :editMode="editMode" v-model="cell.item.productId"></ProductId>
+                </wj-flex-grid-cell-template>
+
+            </wj-flex-grid-column>
         </wj-flex-grid>
 
         <SalesItem v-if="editMode"
@@ -37,12 +42,15 @@
 <script>
 import BaseDetailGrid from '../base-ui/BaseDetailGrid';
 import SalesItem from '../SalesItem.vue';
+import ProductId from '../ProductId.vue';
+
 
 export default {
     name: 'SalesItemsDetailGrid',
     mixins: [BaseDetailGrid],
     components: [
-        SalesItem
+        SalesItem,
+        ProductId
     ],
     methods: {
     }
