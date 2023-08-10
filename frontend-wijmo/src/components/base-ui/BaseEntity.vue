@@ -23,7 +23,10 @@
             isUpdating: false,
             path: '/path',
             repository: null,
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/template
             updateCompanyDiagram: false,
         }),
         created(){
@@ -87,7 +90,10 @@
 
                 } catch(e) {
                     this.$mainApp.error(e)
+<<<<<<< HEAD
                    
+=======
+>>>>>>> origin/template
                 }
                 
             },
@@ -103,7 +109,10 @@
                     this.$emit('delete', this.value);
                 } catch(e) {
                     this.$mainApp.error(e)
+<<<<<<< HEAD
                    
+=======
+>>>>>>> origin/template
                 }
             },
             change(){

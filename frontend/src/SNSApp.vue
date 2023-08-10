@@ -101,8 +101,9 @@
                         color="primary"
                         style="font-weight:700;"
                     >
-                        Inventory
+                        재고
                     </v-list-item>
+
 
 
                 </v-list>
@@ -219,7 +220,7 @@ export default {
                 ImageUrl: '',
             },
             { 
-                title: 'Inventory', 
+                title: '재고', 
                 description: '', 
                 key: 'inventories', 
                 route: '/inventories/inventories',

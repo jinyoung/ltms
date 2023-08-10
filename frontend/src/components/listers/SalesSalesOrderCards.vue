@@ -115,8 +115,7 @@
                 'salesType': '',
                 'salesItems': [],
                 'companyId': {},
-                'salesItems': [],
-                'salesItems': [],
+                'status': '',
             }
         },
         methods:{

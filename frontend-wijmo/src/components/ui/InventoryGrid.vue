@@ -1,17 +1,18 @@
 <template>
     <div style="max-height:80vh;">
         <div class="gs-bundle-of-buttons" style="max-height:10vh;">
-                <v-btn @click="addNewRow" small color="primary">
+                <v-btn @click="addNewRow" small color="primary" :disabled="!hasRole('')">
                     <v-icon small>mdi-plus-circle-outline</v-icon>등록
                 </v-btn>
-                <v-btn  @click="editSelectedRow" small color="primary">
+                <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="deleteSelectedRows" small color="primary">
+                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
+
 
         <!-- the grid -->
         <wj-flex-grid
@@ -33,10 +34,10 @@
         >
             <wj-flex-grid-filter :filterColumns="[RowHeader,'stock','productId','productId',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
-            <wj-flex-grid-column binding="stock" header="Stock" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="stock" header="재고량" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="productId" header="상품정보" width="2*" :isReadOnly="true" align="center">
                 <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
-                    <ProductId :editMode="false" v-model="cell.item.productId"></ProductId>
+                    <ProductId :editMode="editMode" v-model="cell.item.productId"></ProductId>
                 </wj-flex-grid-cell-template>
             </wj-flex-grid-column>
         </wj-flex-grid>
@@ -54,7 +55,7 @@
                             class="elevation-0"
                             height="50px"
                         >
-                            <div style="color:white; font-size:17px; font-weight:700;">Inventory 등록</div>
+                            <div style="color:white; font-size:17px; font-weight:700;">재고 등록</div>
                             <v-spacer></v-spacer>
                             <v-icon
                                 color="white"
@@ -109,13 +110,7 @@ export default {
     },
     data: () => ({
         path: 'inventories',
-        hasRole: false,
     }),
-    computed:{
-        hasRole(){
-            return this.userRoles.includes('')
-        }
-    },
     methods:{
     }
 }

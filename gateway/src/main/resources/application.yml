@@ -20,7 +20,23 @@ spring:
         - id: inventory
           uri: http://localhost:8084
           predicates:
+<<<<<<< HEAD
             - Path=/inventories/**
+=======
+            - Path=, 
+        - id: delivery
+          uri: http://localhost:8085
+          predicates:
+            - Path=, 
+        - id: inventory
+          uri: http://localhost:8086
+          predicates:
+            - Path=/inventories/**, /deliveries/**, /inventories/**, 
+        - id: report
+          uri: http://localhost:8087
+          predicates:
+            - Path=, 
+>>>>>>> origin/template
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -65,6 +81,10 @@ spring:
           uri: http://inventory:8080
           predicates:
             - Path=/inventories/**, /deliveries/**, /inventories/**, 
+        - id: report
+          uri: http://report:8080
+          predicates:
+            - Path=, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

@@ -33,6 +33,8 @@ public class SalesOrder {
     @Embedded
     private CompanyId companyId;
 
+    private Status status;
+
     @PostPersist
     public void onPostPersist() {
         SalesOrderCreated salesOrderCreated = new SalesOrderCreated(this);

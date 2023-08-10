@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="label-title">Stock</div>
+        <div class="label-title">재고량</div>
         <Number label="입력하세요." v-model="value.stock" :editMode="editMode"/>
-        <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
+        <ProductId offline label="제품" v-model="value.productId" :editMode="editMode" @change="change"/>
         <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
@@ -15,18 +15,6 @@
                 저장
             </v-btn>
         </v-layout>
-
-        <v-snackbar
-            v-model="snackbar.status"
-            :top="true"
-            :timeout="snackbar.timeout"
-            color="error"
-        >
-            {{ snackbar.text }}
-            <v-btn dark text @click="snackbar.status = false">
-                Close
-            </v-btn>
-        </v-snackbar>
     </div>
 </template>
 

@@ -4,6 +4,7 @@
 
 <script>
 import BaseEntity from './BaseEntity.vue';
+import BaseSecurity from './BaseSecurity.vue';
 
 import '@grapecity/wijmo.touch';
 import '@grapecity/wijmo.vue2.grid';
@@ -33,9 +34,13 @@ export default {
         },
     }),
     mixins:[
-        BaseEntity
+        BaseEntity,
+        BaseSecurity
     ],
     computed: {
+        username(){
+            return this.getUserName();
+        }
     },
     async created(){
         
@@ -288,3 +293,4 @@ export default {
         margin:10px 0;
     }
 </style>
+

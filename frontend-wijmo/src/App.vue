@@ -3,6 +3,7 @@
 <template>
     <v-app id="inspire">
         <div>
+<<<<<<< HEAD
 
         <v-snackbar
             v-model="snackbar.status"
@@ -16,6 +17,19 @@
             </v-btn>
         </v-snackbar>
 
+=======
+            <v-snackbar
+                v-model="snackbar.status"
+                :top="true"
+                :timeout="snackbar.timeout"
+                :color="snackbar.color"
+            >
+                
+                <v-btn dark text @click="snackbar.status = false">
+                    Close
+                </v-btn>
+            </v-snackbar>
+>>>>>>> origin/template
             <v-app-bar app clipped-left flat>
                 <v-toolbar-title>
                     <span class="second-word font uppercase"
@@ -44,6 +58,15 @@
                     ></span> 
                 <v-spacer></v-spacer>
 
+                <b style="margin-left:10px; font-size:10px">{{username}} 님</b>
+                <v-btn
+                    text
+                    color="deep-purple lighten-2"
+                    style="font-size:10px"
+                    @click="logout()"
+                >
+                    Logout
+                </v-btn>
             </v-app-bar>
 
             <v-navigation-drawer app clipped flat v-model="sideBar">
@@ -81,7 +104,7 @@
                     <v-list-group>
                         <template v-slot:activator>
                             <v-list-item-content>
-                                <v-list-item-title>Sales</v-list-item-title>
+                                <v-list-item-title>영업</v-list-item-title>
                             </v-list-item-content>
                         </template>
 
@@ -121,7 +144,7 @@
                     <v-list-group>
                         <template v-slot:activator>
                             <v-list-item-content>
-                                <v-list-item-title>Inventory</v-list-item-title>
+                                <v-list-item-title>재고</v-list-item-title>
                             </v-list-item-content>
                         </template>
 
@@ -153,8 +176,18 @@
                             style="font-weight:700;
                             font-size:14px;"
                         >
-                            Inventory
+                            재고
                         </v-list-item>
+                    </v-list-group>
+                </v-list>
+                <v-list>
+                    <v-list-group>
+                        <template v-slot:activator>
+                            <v-list-item-content>
+                                <v-list-item-title>레포트</v-list-item-title>
+                            </v-list-item-content>
+                        </template>
+
                     </v-list-group>
                 </v-list>
             </v-navigation-drawer>
@@ -193,10 +226,10 @@
                                             @click="changeUrl()"
                                             style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                                         >
-                                            Company
+                                            회사
                                         </v-btn>
                                     </template>
-                                    <span>Company</span>
+                                    <span>회사</span>
                                 </v-tooltip>
                             </v-card-actions>
                         </v-card>
@@ -227,10 +260,10 @@
                                             @click="changeUrl()"
                                             style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                                         >
-                                            Product
+                                            상품정보
                                         </v-btn>
                                     </template>
-                                    <span>Product</span>
+                                    <span>상품정보</span>
                                 </v-tooltip>
                             </v-card-actions>
                         </v-card>
@@ -262,10 +295,10 @@
                                             @click="changeUrl()"
                                             style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                                         >
-                                            SalesOrder
+                                            수주
                                         </v-btn>
                                     </template>
-                                    <span>SalesOrder</span>
+                                    <span>수주</span>
                                 </v-tooltip>
                             </v-card-actions>
                         </v-card>
@@ -367,13 +400,14 @@
                                             @click="changeUrl()"
                                             style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                                         >
-                                            Inventory
+                                            재고
                                         </v-btn>
                                     </template>
-                                    <span>Inventory</span>
+                                    <span>재고</span>
                                 </v-tooltip>
                             </v-card-actions>
                         </v-card>
+
 
                 </v-row>
             </v-container>
@@ -382,30 +416,38 @@
 </template>
 
 <script>
+import BaseGrid from './components/base-ui/BaseGrid'
 
 import Vue from 'vue'
 
 export default {
     name: "App",
-
+    mixins:[BaseGrid],
     data: () => ({
         useComponent: "",
         drawer: true,
-        components: [],
+        components: {},
         sideBar: true,
         urlPath: null,
         snackbar: {
+<<<<<<< HEAD
                 status: false,
                 timeout: 5000,
                 text: '',
                 color: 'info'
             },
+=======
+            status: false,
+            timeout: 5000,
+            text: '',
+            color: 'info'
+        },
+>>>>>>> origin/template
     }),
     
     async created() {
       var path = document.location.href.split("#/")
       this.urlPath = path[1];
-
     },
 
     mounted() {
@@ -425,7 +467,10 @@ export default {
         goHome() {
             this.urlPath = null;
         },
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/template
         error(e){
             this.snackbar.status = true
             this.snackbar.color= 'error'
@@ -435,7 +480,10 @@ export default {
                 this.snackbar.text = e
             }
         },
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/template
         success(msg){
             this.snackbar.color= 'info'
             this.snackbar.status = true

@@ -25,6 +25,7 @@ Run the command "mvn spring-boot:run" inside the each microservices directory:
 - inventory
 - delivery
 - inventory
+- report
 
 
 ## Run API Gateway (Spring Gateway)
@@ -36,6 +37,7 @@ mvn spring-boot:run
 ## Test by API
 
 ```
+<<<<<<< HEAD
 http :8082/companies code="ue" name="유엔진" industry="SW" foundedDate="2017-03-15"
 
 http :8083/salesOrders companyId[id]="ue" salesOrderNumber="1" salesType="PO" salesItems[0][productId][id]="1" salesItems[0][qty]=5
@@ -55,6 +57,29 @@ http PUT http://localhost:8083/salesOrders/2/produce  # 수주2번 생산완료
 
 http :8084/inventories    # returns the stock of product #1 and #2 are 8 and 3
 
+=======
+ http :8088/companies name="name" industry="industry" foundedDate="foundedDate" code="code" 
+ http :8088/products id="id" stock="stock" name="name" 
+```
+- sales
+```
+ http :8088/salesOrders salesOrderNumber="salesOrderNumber" salesPerson="salesPerson" salesType="salesType" salesItems="salesItems" companyId="companyId" status="status" 
+```
+- inventory
+```
+```
+- delivery
+```
+```
+- inventory
+```
+ http :8088/inventories id="id" 
+ http :8088/deliveries id="id" 
+ http :8088/inventories id="id" stock="stock" productId="productId" productId="productId" 
+>>>>>>> origin/template
+```
+- report
+```
 ```
 
 

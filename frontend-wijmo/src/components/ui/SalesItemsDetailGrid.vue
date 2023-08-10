@@ -17,25 +17,21 @@
         >
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="qty" header="Qty" width="2*" :isReadOnly="!editMode" align="center" />
+<<<<<<< HEAD
             <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center">
                  <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
                     <ProductId :editMode="editMode" v-model="cell.item.productId"></ProductId>
                 </wj-flex-grid-cell-template>
 
             </wj-flex-grid-column>
+=======
+            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
+            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
+            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
+>>>>>>> origin/template
         </wj-flex-grid>
-
-        <SalesItem v-if="editMode"
-            :offline="offline"
-            :isNew="!itemToEdit"
-            :editMode="editMode"
-            inList
-            v-model="itemToEdit"
-            @add="append"
-        >
-            <slot name="actions"></slot>
-        </SalesItem>
         <v-btn v-if="editMode" @click="append()">추가</v-btn>
+        <v-btn v-if="editMode" @click="detailDeleteRow()">삭제</v-btn>
     </div>
 </template>
 

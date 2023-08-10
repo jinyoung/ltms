@@ -24,6 +24,7 @@
                 default: 0
             },
             editMode: Boolean,
+            label: String,
         },
         methods:{
             change(){

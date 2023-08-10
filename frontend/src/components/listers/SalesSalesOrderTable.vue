@@ -71,8 +71,7 @@
                     { text: "salesType", value: "salesType" },
                     { text: "salesItems", value: "salesItems" },
                     { text: "companyId", value: "companyId" },
-                    { text: "salesItems", value: "salesItems" },
-                    { text: "salesItems", value: "salesItems" },
+                    { text: "status", value: "status" },
                 ],
             salesOrder : [],
             newValue: {},
@@ -95,8 +94,7 @@
                 'salesType': '',
                 'salesItems': [],
                 'companyId': {},
-                'salesItems': [],
-                'salesItems': [],
+                'status': '',
             }
         },
         methods: {

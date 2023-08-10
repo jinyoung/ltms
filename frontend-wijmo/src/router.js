@@ -15,6 +15,7 @@ import SalesOrderManager from "./components/ui/SalesOrderGrid"
 import InventoryManager from "./components/ui/InventoryGrid"
 
 
+
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
@@ -48,6 +49,7 @@ export default new Router({
                 name: 'InventoryManager',
                 component: InventoryManager
             },
+
 
 
 
