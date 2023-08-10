@@ -37,8 +37,7 @@ mvn spring-boot:run
 ## Test by API
 
 ```
-<<<<<<< HEAD
-http :8082/companies code="ue" name="유엔진" industry="SW" foundedDate="2017-03-15"
+http :8082/companies code="ue" name="무른모" industry="SW" foundedDate="2017-03-15"
 
 http :8083/salesOrders companyId[id]="ue" salesOrderNumber="1" salesType="PO" salesItems[0][productId][id]="1" salesItems[0][qty]=5
 
