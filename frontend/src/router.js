@@ -23,6 +23,7 @@ import InventoryInventoryManager from "./components/listers/InventoryInventoryCa
 import InventoryInventoryDetail from "./components/listers/InventoryInventoryDetail"
 
 
+
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
@@ -91,6 +92,7 @@ export default new Router({
                 name: 'InventoryInventoryDetail',
                 component: InventoryInventoryDetail
             },
+
 
 
 

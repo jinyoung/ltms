@@ -19,7 +19,7 @@
             <String label="이름" v-model="value.name" :editMode="editMode" :inputUI="''"/>
             <String label="산업" v-model="value.industry" :editMode="editMode" :inputUI="'TEXT'"/>
             <Date label="설립일자" v-model="value.foundedDate" :editMode="editMode" :inputUI="''"/>
-            <String v-if="editMode" label="" v-model="value.code" :editMode="editMode" :inputUI="''"/>
+            <String v-if="editMode" label="회사코드" v-model="value.code" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

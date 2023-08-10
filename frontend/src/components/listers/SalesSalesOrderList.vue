@@ -46,7 +46,6 @@
                             
                             
                             
-                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -55,8 +54,7 @@
                             [ SalesType :  {{data.salesType }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ SalesItems :  {{data.salesItems }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ CompanyId :  {{data.companyId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ SalesItems :  {{data.salesItems }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ SalesItems :  {{data.salesItems }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -129,8 +127,7 @@
                 'salesType': '',
                 'salesItems': [],
                 'companyId': {},
-                'salesItems': [],
-                'salesItems': [],
+                'status': '',
             }
         },
         methods: {

@@ -30,10 +30,7 @@
                                 CompanyId :  {{item.companyId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                SalesItems :  {{item.salesItems }}
-                            </v-list-item-subtitle>
-                            <v-list-item-subtitle>
-                                SalesItems :  {{item.salesItems }}
+                                Status :  {{item.status }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 
@@ -86,8 +83,6 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['salesOrderNumber'] = arr[4]; 
-                    
-                    
                     
                     
                     

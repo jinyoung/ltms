@@ -24,10 +24,12 @@ public class SalesOrder {
     private SalesType salesType;
 
     @ElementCollection
-    private List<SalesItems> salesItems;
+    private List<SalesItem> salesItems;
 
     @Embedded
     private CompanyId companyId;
+
+    private Status status;
 
     @PostPersist
     public void onPostPersist() {
@@ -74,7 +76,6 @@ public class SalesOrder {
         //implement business logic here:
 
         Produced produced = new Produced(this);
-        produced.set(produceCommand.get());
         produced.publishAfterCommit();
     }
     //>>> Clean Arch / Port Method

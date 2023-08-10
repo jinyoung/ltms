@@ -4,6 +4,7 @@
 
 <script>
 import BaseEntity from './BaseEntity.vue';
+import BaseSecurity from './BaseSecurity.vue';
 
 import '@grapecity/wijmo.touch';
 import '@grapecity/wijmo.vue2.grid';
@@ -33,9 +34,13 @@ export default {
         },
     }),
     mixins:[
-        BaseEntity
+        BaseEntity,
+        BaseSecurity
     ],
     computed: {
+        username(){
+            return this.getUserName();
+        }
     },
     async created(){
         
@@ -110,12 +115,7 @@ export default {
                     }
                 }
             } catch(e) {
-                this.snackbar.status = true
-                if(e.response && e.response.data.message) {
-                    this.snackbar.text = e.response.data.message
-                } else {
-                    this.snackbar.text = e
-                }
+                this.$mainApp.error(e)
             }
         },
         groupPanelInitialized: function (ctl) {
@@ -285,3 +285,4 @@ export default {
         margin:10px 0;
     }
 </style>
+

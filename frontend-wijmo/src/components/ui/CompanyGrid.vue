@@ -1,17 +1,28 @@
 <template>
     <div style="max-height:80vh;">
         <div class="gs-bundle-of-buttons" style="max-height:10vh;">
-                <v-btn @click="addNewRow" small color="primary">
+                <v-btn @click="addNewRow" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-plus-circle-outline</v-icon>등록
                 </v-btn>
-                <v-btn  @click="editSelectedRow" small color="primary">
+                <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="deleteSelectedRows" small color="primary">
+                <v-btn @click="openUpdateCompany" small color="primary" :disabled="!hasRole('')">
+                    <v-con small>mdi-minus-circle-outline</<v-icon>회사 업데이트
+                </v-btn>
+                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
+                <v-dialog v-model="updateCompanyDiagram" width="500">
+                    <UpdateCompanyCommand
+                        @closeDialog="closeUpdateCompany"
+                        @updateCompany="updateCompany"
+                    ></UpdateCompanyCommand>
+                </v-dialog>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
+        <CompanyQuery @search="search"></CompanyQuery>
+
 
         <!-- the grid -->
         <wj-flex-grid
@@ -36,7 +47,7 @@
             <wj-flex-grid-column binding="name" header="이름" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="industry" header="산업" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="foundedDate" header="설립일자" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="code" header="Code" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="code" header="회사코드" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
         <v-col>
             <v-dialog
@@ -96,6 +107,7 @@
 </template>
 
 <script>
+import CompanyQuery from '../CompanyQuery.vue';
 import Company from '../Company.vue'
 import BaseGrid from '../base-ui/BaseGrid'
 
@@ -103,18 +115,21 @@ export default {
     name: 'companyGrid',
     mixins:[BaseGrid],
     components:{
+        CompanyQuery,
         Company,
     },
     data: () => ({
         path: 'companies',
-        hasRole: false,
     }),
-    computed:{
-        hasRole(){
-            return this.userRoles.includes('Admin')
-        }
-    },
     methods:{
+            updateCompany(params){
+                try{
+                    this.repository.invoke(this.getSelectedItem(), "updateCompany", params)
+                    this.$mainApp.success("UpdateCompany 성공적으로 처리되었습니다.")
+                }catch(e){
+                    this.$mainApp.reportError(e)
+                }
+            }
     }
 }
 </script>

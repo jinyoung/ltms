@@ -21,5 +21,13 @@ public class SalesItem {
     @Embedded
     @GeneratedValue(strategy = GenerationType.AUTO)
     private ProductId productId;
+
+    @Embedded
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private ProductId productId;
+
+    @Embedded
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private ProductId productId;
 }
 //>>> DDD / Value Object

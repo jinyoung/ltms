@@ -25,6 +25,7 @@ See the README.md files inside the each microservices directory:
 - inventory
 - delivery
 - inventory
+- report
 
 
 ## Run API Gateway (Spring Gateway)
@@ -41,7 +42,7 @@ mvn spring-boot:run
 ```
 - sales
 ```
- http :8088/salesOrders salesOrderNumber="salesOrderNumber" salesPerson="salesPerson" salesType="salesType" salesItems="salesItems" companyId="companyId" salesItems="salesItems" salesItems="salesItems" 
+ http :8088/salesOrders salesOrderNumber="salesOrderNumber" salesPerson="salesPerson" salesType="salesType" salesItems="salesItems" companyId="companyId" status="status" 
 ```
 - inventory
 ```
@@ -51,9 +52,12 @@ mvn spring-boot:run
 ```
 - inventory
 ```
- http :8088/inventories id="id" stock="stock" 
- http :8088/deliveries 
+ http :8088/inventories id="id" 
+ http :8088/deliveries id="id" 
  http :8088/inventories id="id" stock="stock" productId="productId" productId="productId" 
+```
+- report
+```
 ```
 
 

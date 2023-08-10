@@ -5,12 +5,12 @@
 ### Cluster에 inventory Deployment를 생성하려면 아래의 명령어를 실행하세요.
 
 ```
-$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/inventory.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230809%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230809T014100Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=c5e8881114e7eee6b30db5d158378f9573670ec3d3ae0c7b0bb2ec5186a4d560
+$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/inventory.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230810%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230810T071759Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=5ef4ade2d45e3e1445f40800989626d53d424484a1d1941c9875221b86960a3a
 ```
 - Yaml 파일에 명시된 스펙으로 inventory Deployment를 생성합니다.
 
 ```
-$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/inventory.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230809%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230809T014100Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=c5e8881114e7eee6b30db5d158378f9573670ec3d3ae0c7b0bb2ec5186a4d560
+$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/inventory.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230810%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230810T071759Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=5ef4ade2d45e3e1445f40800989626d53d424484a1d1941c9875221b86960a3a
 ```
 - Create가 된 상태라면 inventory Deployment의 수정이 이루어지고, Create가 된 상태가 아니라면 inventory Deployment를 Create 해주는 명령어입니다.  
 #

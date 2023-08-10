@@ -17,18 +17,8 @@
         >
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
         </wj-flex-grid>
-
-        <CompanyId v-if="editMode"
-            :offline="offline"
-            :isNew="!itemToEdit"
-            :editMode="editMode"
-            inList
-            v-model="itemToEdit"
-            @add="append"
-        >
-            <slot name="actions"></slot>
-        </CompanyId>
         <v-btn v-if="editMode" @click="append()">추가</v-btn>
+        <v-btn v-if="editMode" @click="detailDeleteRow()">삭제</v-btn>
     </div>
 </template>
 

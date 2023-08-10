@@ -1,17 +1,18 @@
 <template>
     <div style="max-height:80vh;">
         <div class="gs-bundle-of-buttons" style="max-height:10vh;">
-                <v-btn @click="addNewRow" small color="primary">
+                <v-btn @click="addNewRow" small color="primary" :disabled="!hasRole('')">
                     <v-icon small>mdi-plus-circle-outline</v-icon>등록
                 </v-btn>
-                <v-btn  @click="editSelectedRow" small color="primary">
+                <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="deleteSelectedRows" small color="primary">
+                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
+
 
         <!-- the grid -->
         <wj-flex-grid
@@ -103,13 +104,7 @@ export default {
     },
     data: () => ({
         path: 'deliveries',
-        hasRole: false,
     }),
-    computed:{
-        hasRole(){
-            return this.userRoles.includes('')
-        }
-    },
     methods:{
     }
 }

@@ -13,6 +13,8 @@ import newtest.InventoryApplication;
 //<<< DDD / Aggregate Root
 public class Delivery {
 
+    private Long id;
+
     public static DeliveryRepository repository() {
         DeliveryRepository deliveryRepository = InventoryApplication.applicationContext.getBean(
             DeliveryRepository.class

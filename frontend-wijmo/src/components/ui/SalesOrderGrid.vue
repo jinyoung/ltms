@@ -1,17 +1,39 @@
 <template>
     <div style="max-height:80vh;">
         <div class="gs-bundle-of-buttons" style="max-height:10vh;">
-                <v-btn @click="addNewRow" small color="primary">
+                <v-btn @click="addNewRow" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-plus-circle-outline</v-icon>등록
                 </v-btn>
-                <v-btn  @click="editSelectedRow" small color="primary">
+                <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="deleteSelectedRows" small color="primary">
+                <v-btn @click="openCreateSalesOrder" small color="primary" :disabled="!hasRole('')">
+                    <v-con small>mdi-minus-circle-outline</<v-icon>수주 생성
+                </v-btn>
+                <v-btn @click="openUpdateSalesOrder" small color="primary" :disabled="!hasRole('')">
+                    <v-con small>mdi-minus-circle-outline</<v-icon>수주 수정
+                </v-btn>
+                <v-btn @click="produce" small color="primary" :disabled="!hasRole('')">
+                    <v-con small>mdi-minus-circle-outline</<v-icon>생산완료
+                </v-btn>
+                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
+                <v-dialog v-model="createSalesOrderDiagram" width="500">
+                    <CreateSalesOrderCommand
+                        @closeDialog="closeCreateSalesOrder"
+                        @createSalesOrder="createSalesOrder"
+                    ></CreateSalesOrderCommand>
+                </v-dialog>
+                <v-dialog v-model="updateSalesOrderDiagram" width="500">
+                    <UpdateSalesOrderCommand
+                        @closeDialog="closeUpdateSalesOrder"
+                        @updateSalesOrder="updateSalesOrder"
+                    ></UpdateSalesOrderCommand>
+                </v-dialog>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
+
 
         <!-- the grid -->
         <wj-flex-grid
@@ -31,14 +53,13 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','salesItems','companyId','salesItems','salesItems',]" />
+            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','salesItems','companyId','status',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="salesOrderNumber" header="수주 번호" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesPerson" header="수주 담당자" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="salesType" header="SalesType" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="salesType" header="수주유형" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="status" header="Status" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
-        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
-        <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
         <SalesItemsDetailGrid offline v-if="selectedRow" v-model="selectedRow.salesItems"/>
         <v-col>
             <v-dialog
@@ -109,14 +130,32 @@ export default {
     },
     data: () => ({
         path: 'salesOrders',
-        hasRole: false,
     }),
-    computed:{
-        hasRole(){
-            return this.userRoles.includes('SalesPerson')
-        }
-    },
     methods:{
+            createSalesOrder(params){
+                try{
+                    this.repository.invoke(this.getSelectedItem(), "createSalesOrder", params)
+                    this.$mainApp.success("CreateSalesOrder 성공적으로 처리되었습니다.")
+                }catch(e){
+                    this.$mainApp.reportError(e)
+                }
+            }
+            updateSalesOrder(params){
+                try{
+                    this.repository.invoke(this.getSelectedItem(), "updateSalesOrder", params)
+                    this.$mainApp.success("UpdateSalesOrder 성공적으로 처리되었습니다.")
+                }catch(e){
+                    this.$mainApp.reportError(e)
+                }
+            }
+            produce(){
+                try{
+                    this.repository.invoke(this.getSelectedItem(), "produce", null)
+                    this.$mainApp.success("produce 성공적으로 처리되었습니다.")
+                }catch(e){
+                    this.$mainApp.reportError(e)
+                }
+            }
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BasePicker v-if="editMode" searchApiPath="companies/search/" searchParameterName="" idField="" nameField="" path="companies" :label="label" v-model="value" @selected="pick" :editMode="editMode" />
+        <BasePicker v-if="editMode" searchApiPath="companies/search/findBy" searchParameterName="" idField="" nameField="" path="companies" label="CompanyId" v-model="value" @selected="pick" :editMode="editMode" />
         <div v-else>
             <span>{{ value && value.name ? value.name : '' }}</span>
         </div>

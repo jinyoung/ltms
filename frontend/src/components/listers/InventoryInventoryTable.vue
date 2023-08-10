@@ -67,7 +67,6 @@
             headers: 
                 [
                     { text: "id", value: "id" },
-                    { text: "stock", value: "stock" },
                 ],
             inventory : [],
             newValue: {},
@@ -85,7 +84,6 @@
             this.values = temp.data._embedded.inventories;
 
             this.newValue = {
-                'stock': 0,
             }
         },
         methods: {

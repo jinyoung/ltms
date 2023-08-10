@@ -17,6 +17,7 @@ import DeliveryManager from "./components/ui/DeliveryGrid"
 import InventoryManager from "./components/ui/InventoryGrid"
 
 
+
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
@@ -55,6 +56,7 @@ export default new Router({
                 name: 'InventoryManager',
                 component: InventoryManager
             },
+
 
 
 

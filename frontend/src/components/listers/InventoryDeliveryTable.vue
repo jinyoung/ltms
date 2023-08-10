@@ -66,6 +66,7 @@
             values: [],
             headers: 
                 [
+                    { text: "id", value: "id" },
                 ],
             delivery : [],
             newValue: {},

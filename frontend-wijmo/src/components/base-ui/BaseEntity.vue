@@ -23,11 +23,6 @@
             isUpdating: false,
             path: '/path',
             repository: null,
-            snackbar: {
-                status: false,
-                timeout: 5000,
-                text: ''
-            },
             updateCompanyDiagram: false,
         }),
         created(){
@@ -90,12 +85,7 @@
                     location.reload()
 
                 } catch(e) {
-                    this.snackbar.status = true
-                    if(e.response && e.response.data.message) {
-                        this.snackbar.text = e.response.data.message
-                    } else {
-                        this.snackbar.text = e
-                    }
+                    this.$mainApp.error(e)
                 }
                 
             },
@@ -110,12 +100,7 @@
                     this.$emit('input', this.value);
                     this.$emit('delete', this.value);
                 } catch(e) {
-                    this.snackbar.status = true
-                    if(e.response && e.response.data.message) {
-                        this.snackbar.text = e.response.data.message
-                    } else {
-                        this.snackbar.text = e
-                    }
+                    this.$mainApp.error(e)
                 }
             },
             change(){

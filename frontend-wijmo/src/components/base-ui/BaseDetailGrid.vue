@@ -15,6 +15,16 @@
              }
          },
          methods: {
+            detailDeleteRow() {
+                const flexGridDetails = this.$refs.flexGridDetails;
+                const view = flexGridDetails.collectionView;
+                const selectedIndex = view.currentPosition;
+
+                if (selectedIndex !== -1) {
+                    view.remove(view.currentItem);
+                    this.$emit('input', view.sourceCollection);
+                }
+            }
          }
      };
      
