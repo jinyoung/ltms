@@ -23,7 +23,6 @@ Run the command "mvn spring-boot:run" inside the each microservices directory:
 - basic
 - sales
 - inventory
-- delivery
 - inventory
 - report
 
@@ -56,7 +55,7 @@ http PUT http://localhost:8083/salesOrders/2/produce  # 수주2번 생산완료
 
 http :8084/inventories    # returns the stock of product #1 and #2 are 8 and 3
 
-
+```
 
 ## Run the frontend
 ```
