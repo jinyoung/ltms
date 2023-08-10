@@ -21,6 +21,8 @@ public class Inventory {
     @EmbeddedId
     private ProductId productId; //   private Long id;
 
+    private Long stock;
+
     public static InventoryRepository repository() {
         InventoryRepository inventoryRepository = InventoryApplication.applicationContext.getBean(
             InventoryRepository.class
