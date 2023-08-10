@@ -1,4 +1,4 @@
-# 
+
 
 ## Model
 www.msaez.io/#/storming/ltms2
@@ -77,10 +77,4 @@ sudo apt install iputils-ping
 pip install httpie
 ```
 
-
-- eksctl 
-```
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-sudo mv /tmp/eksctl /usr/local/bin
-```
 
