@@ -3,21 +3,6 @@
 <template>
     <v-app id="inspire">
         <div>
-<<<<<<< HEAD
-
-        <v-snackbar
-            v-model="snackbar.status"
-            :top="true"
-            :timeout="snackbar.timeout"
-            :color="snackbar.color"
-        >
-            {{ snackbar.text }}
-            <v-btn dark text @click="snackbar.status = false">
-                Close
-            </v-btn>
-        </v-snackbar>
-
-=======
             <v-snackbar
                 v-model="snackbar.status"
                 :top="true"
@@ -29,7 +14,6 @@
                     Close
                 </v-btn>
             </v-snackbar>
->>>>>>> origin/template
             <v-app-bar app clipped-left flat>
                 <v-toolbar-title>
                     <span class="second-word font uppercase"
@@ -430,19 +414,11 @@ export default {
         sideBar: true,
         urlPath: null,
         snackbar: {
-<<<<<<< HEAD
-                status: false,
-                timeout: 5000,
-                text: '',
-                color: 'info'
-            },
-=======
             status: false,
             timeout: 5000,
             text: '',
             color: 'info'
         },
->>>>>>> origin/template
     }),
     
     async created() {
@@ -467,10 +443,6 @@ export default {
         goHome() {
             this.urlPath = null;
         },
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/template
         error(e){
             this.snackbar.status = true
             this.snackbar.color= 'error'
@@ -480,10 +452,6 @@ export default {
                 this.snackbar.text = e
             }
         },
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/template
         success(msg){
             this.snackbar.color= 'info'
             this.snackbar.status = true

@@ -15,7 +15,7 @@
     const axios = require('axios').default;
 
     export default {
-        name: 'CompanyQueryChart',
+        name: 'Barchart',
         components: {
             'apexchart': VueApexCharts,
         },

@@ -23,10 +23,6 @@
             isUpdating: false,
             path: '/path',
             repository: null,
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/template
             updateCompanyDiagram: false,
         }),
         created(){
@@ -86,14 +82,10 @@
                         this.$emit('edit', this.value);
                     }
 
-                    location.reload()
+                    //location.reload()
 
                 } catch(e) {
                     this.$mainApp.error(e)
-<<<<<<< HEAD
-                   
-=======
->>>>>>> origin/template
                 }
                 
             },
@@ -109,10 +101,6 @@
                     this.$emit('delete', this.value);
                 } catch(e) {
                     this.$mainApp.error(e)
-<<<<<<< HEAD
-                   
-=======
->>>>>>> origin/template
                 }
             },
             change(){
@@ -120,7 +108,7 @@
             },
             closeDialog(){
                 this.openDialog = false
-                location.reload()
+                //location.reload()
             },
 
         },

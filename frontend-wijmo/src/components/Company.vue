@@ -19,10 +19,6 @@
                 저장
             </v-btn>
         </v-layout>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/template
     </div>
 </template>
 

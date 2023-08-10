@@ -23,7 +23,6 @@
                 </wj-flex-grid-cell-template>
 
             </wj-flex-grid-column>
-            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
         </wj-flex-grid>
         <v-btn v-if="editMode" @click="append()">추가</v-btn>
         <v-btn v-if="editMode" @click="detailDeleteRow()">삭제</v-btn>

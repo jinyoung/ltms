@@ -7,12 +7,7 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="openUpdateCompany" small color="primary" :disabled="!hasRole('')">
-                    <v-con small>mdi-minus-circle-outline</<v-icon>회사 업데이트
-                </v-btn>
-                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('Admin')">
-                    <v-icon small>mdi-minus-circle-outline</v-icon>삭제
-                </v-btn>
+
                 <v-dialog v-model="updateCompanyDiagram" width="500">
                     <UpdateCompanyCommand
                         @closeDialog="closeUpdateCompany"
