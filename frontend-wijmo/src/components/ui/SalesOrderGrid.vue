@@ -7,23 +7,10 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-<<<<<<< HEAD
                 <v-btn @click="produce" small color="primary">
                     <v-icon small>mdi-minus-circle-outline</v-icon>생산완료
                 </v-btn>
                 <v-btn @click="deleteSelectedRows" small color="primary">
-=======
-                <v-btn @click="openCreateSalesOrder" small color="primary" :disabled="!hasRole('')">
-                    <v-con small>mdi-minus-circle-outline</<v-icon>수주 생성
-                </v-btn>
-                <v-btn @click="openUpdateSalesOrder" small color="primary" :disabled="!hasRole('')">
-                    <v-con small>mdi-minus-circle-outline</<v-icon>수주 수정
-                </v-btn>
-                <v-btn @click="produce" small color="primary" :disabled="!hasRole('')">
-                    <v-con small>mdi-minus-circle-outline</<v-icon>생산완료
-                </v-btn>
-                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('SalesPerson')">
->>>>>>> origin/template
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
                 <v-dialog v-model="createSalesOrderDiagram" width="500">
@@ -60,7 +47,7 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','salesItems','companyId','status',]" />
+            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','status','companyId','salesItems',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="salesOrderNumber" header="수주 번호" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesPerson" header="수주 담당자" width="2*" :isReadOnly="true" align="center" />
@@ -139,7 +126,6 @@ export default {
         path: 'salesOrders',
     }),
     methods:{
-<<<<<<< HEAD
         produce(){
             try{
 
@@ -150,32 +136,7 @@ export default {
                 this.$mainApp.error(e)
             }
         }
-=======
-            createSalesOrder(params){
-                try{
-                    this.repository.invoke(this.getSelectedItem(), "createSalesOrder", params)
-                    this.$mainApp.success("CreateSalesOrder 성공적으로 처리되었습니다.")
-                }catch(e){
-                    this.$mainApp.reportError(e)
-                }
-            }
-            updateSalesOrder(params){
-                try{
-                    this.repository.invoke(this.getSelectedItem(), "updateSalesOrder", params)
-                    this.$mainApp.success("UpdateSalesOrder 성공적으로 처리되었습니다.")
-                }catch(e){
-                    this.$mainApp.reportError(e)
-                }
-            }
-            produce(){
-                try{
-                    this.repository.invoke(this.getSelectedItem(), "produce", null)
-                    this.$mainApp.success("produce 성공적으로 처리되었습니다.")
-                }catch(e){
-                    this.$mainApp.reportError(e)
-                }
-            }
->>>>>>> origin/template
+        
     }
 }
 </script>

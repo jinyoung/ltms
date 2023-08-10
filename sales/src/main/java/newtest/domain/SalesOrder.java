@@ -27,13 +27,13 @@ public class SalesOrder {
 
     private SalesType salesType;
 
-    @ElementCollection
-    private List<SalesItem> salesItems;
+    private Status status;
 
     @Embedded
     private CompanyId companyId;
 
-    private Status status;
+    @ElementCollection
+    private List<SalesItem> salesItems;
 
     @PostPersist
     public void onPostPersist() {

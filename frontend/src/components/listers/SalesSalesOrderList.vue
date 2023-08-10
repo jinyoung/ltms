@@ -52,9 +52,9 @@
                             [ SalesOrderNumber :  {{data.salesOrderNumber }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ SalesPerson :  {{data.salesPerson }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ SalesType :  {{data.salesType }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ SalesItems :  {{data.salesItems }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ CompanyId :  {{data.companyId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ CompanyId :  {{data.companyId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ SalesItems :  {{data.salesItems }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -125,9 +125,9 @@
                 'salesOrderNumber': '',
                 'salesPerson': '',
                 'salesType': '',
-                'salesItems': [],
-                'companyId': {},
                 'status': '',
+                'companyId': {},
+                'salesItems': [],
             }
         },
         methods: {

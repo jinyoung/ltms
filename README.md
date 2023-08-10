@@ -57,31 +57,6 @@ http PUT http://localhost:8083/salesOrders/2/produce  # 수주2번 생산완료
 
 http :8084/inventories    # returns the stock of product #1 and #2 are 8 and 3
 
-=======
- http :8088/companies name="name" industry="industry" foundedDate="foundedDate" code="code" 
- http :8088/products id="id" stock="stock" name="name" 
-```
-- sales
-```
- http :8088/salesOrders salesOrderNumber="salesOrderNumber" salesPerson="salesPerson" salesType="salesType" salesItems="salesItems" companyId="companyId" status="status" 
-```
-- inventory
-```
-```
-- delivery
-```
-```
-- inventory
-```
- http :8088/inventories id="id" 
- http :8088/deliveries id="id" 
- http :8088/inventories id="id" stock="stock" productId="productId" productId="productId" 
->>>>>>> origin/template
-```
-- report
-```
-```
-
 
 
 ## Run the frontend

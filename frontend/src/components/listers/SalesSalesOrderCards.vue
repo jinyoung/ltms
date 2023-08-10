@@ -113,9 +113,9 @@
                 'salesOrderNumber': '',
                 'salesPerson': '',
                 'salesType': '',
-                'salesItems': [],
-                'companyId': {},
                 'status': '',
+                'companyId': {},
+                'salesItems': [],
             }
         },
         methods:{

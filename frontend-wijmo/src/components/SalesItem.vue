@@ -9,7 +9,6 @@
             <Number label="입력하세요." v-model="value.qty" :editMode="editMode"/>
             <ProductId offline label="입력하세요." v-model="value.productId" :editMode="editMode" @change="change"/>
             <ProductId offline label="입력하세요." v-model="value.productId" :editMode="editMode" @change="change"/>
-            <ProductId offline label="입력하세요." v-model="value.productId" :editMode="editMode" @change="change"/>
         </v-col>
 
         <v-card-actions v-if="inList">
