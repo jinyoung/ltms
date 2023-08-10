@@ -2,7 +2,6 @@
     <div>
         <div class="label-title">재고량</div>
         <Number label="입력하세요." v-model="value.stock" :editMode="editMode"/>
-        <ProductId offline label="제품" v-model="value.productId" :editMode="editMode" @change="change"/>
         <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>

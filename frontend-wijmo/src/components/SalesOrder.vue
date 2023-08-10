@@ -5,8 +5,8 @@
         <div class="label-title">수주 담당자</div>
         <String label="입력하세요." v-model="value.salesPerson" :editMode="editMode"/>
         <SalesType offline label="수주유형" v-model="value.salesType" :editMode="editMode" @change="change"/>
-        <CompanyId offline label="CompanyId" v-model="value.companyId" :editMode="editMode" @change="change"/>
         <Status offline label="Status" v-model="value.status" :editMode="editMode" @change="change"/>
+        <CompanyId offline label="CompanyId" v-model="value.companyId" :editMode="editMode" @change="change"/>
         <SalesItemsDetailGrid offline v-model="value.salesItems" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>

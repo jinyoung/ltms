@@ -53,7 +53,7 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','salesItems','companyId','status',]" />
+            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','status','companyId','salesItems',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="salesOrderNumber" header="수주 번호" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesPerson" header="수주 담당자" width="2*" :isReadOnly="true" align="center" />
@@ -132,30 +132,30 @@ export default {
         path: 'salesOrders',
     }),
     methods:{
-            createSalesOrder(params){
-                try{
-                    this.repository.invoke(this.getSelectedItem(), "createSalesOrder", params)
-                    this.$mainApp.success("CreateSalesOrder 성공적으로 처리되었습니다.")
-                }catch(e){
-                    this.$mainApp.reportError(e)
-                }
+        createSalesOrder(params){
+            try{
+                this.repository.invoke(this.getSelectedItem(), "createSalesOrder", params)
+                this.$mainApp.success("CreateSalesOrder 성공적으로 처리되었습니다.")
+            }catch(e){
+                this.$mainApp.reportError(e)
             }
-            updateSalesOrder(params){
-                try{
-                    this.repository.invoke(this.getSelectedItem(), "updateSalesOrder", params)
-                    this.$mainApp.success("UpdateSalesOrder 성공적으로 처리되었습니다.")
-                }catch(e){
-                    this.$mainApp.reportError(e)
-                }
+        },
+        updateSalesOrder(params){
+            try{
+                this.repository.invoke(this.getSelectedItem(), "updateSalesOrder", params)
+                this.$mainApp.success("UpdateSalesOrder 성공적으로 처리되었습니다.")
+            }catch(e){
+                this.$mainApp.reportError(e)
             }
-            produce(){
-                try{
-                    this.repository.invoke(this.getSelectedItem(), "produce", null)
-                    this.$mainApp.success("produce 성공적으로 처리되었습니다.")
-                }catch(e){
-                    this.$mainApp.reportError(e)
-                }
+        },
+        produce(){
+            try{
+                this.repository.invoke(this.getSelectedItem(), "produce", null)
+                this.$mainApp.success("produce 성공적으로 처리되었습니다.")
+            }catch(e){
+                this.$mainApp.reportError(e)
             }
+        },
     }
 }
 </script>

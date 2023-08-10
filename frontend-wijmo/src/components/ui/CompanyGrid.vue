@@ -122,14 +122,14 @@ export default {
         path: 'companies',
     }),
     methods:{
-            updateCompany(params){
-                try{
-                    this.repository.invoke(this.getSelectedItem(), "updateCompany", params)
-                    this.$mainApp.success("UpdateCompany 성공적으로 처리되었습니다.")
-                }catch(e){
-                    this.$mainApp.reportError(e)
-                }
+        updateCompany(params){
+            try{
+                this.repository.invoke(this.getSelectedItem(), "updateCompany", params)
+                this.$mainApp.success("UpdateCompany 성공적으로 처리되었습니다.")
+            }catch(e){
+                this.$mainApp.reportError(e)
             }
+        },
     }
 }
 </script>
