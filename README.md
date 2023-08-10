@@ -78,3 +78,10 @@ pip install httpie
 ```
 
 
+# Issues
+- 멱등성 보장처리:  재고량, 레포트
+- 다종 데이터베이스 (현재: mysql, postgres)
+- Micro frontends 처리
+- 멀티태넌시 처리 방법 다양화 (현재: DB per tenant, 추가: Shared DB & segregated by tenant ID column)
+- 태넌트 별 설정 방법...
+
