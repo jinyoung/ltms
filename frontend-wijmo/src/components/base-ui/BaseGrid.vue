@@ -86,10 +86,6 @@ export default {
         flexDetailsInitialized(flexGridDetails) {
             this.$refs.flexGridDetails = flexGridDetails;
         },
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/template
         getSelectedItem(){
             const flexGrid = this.$refs.flexGrid;
             const view = flexGrid.collectionView;

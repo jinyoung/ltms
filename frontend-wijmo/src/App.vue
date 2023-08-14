@@ -403,8 +403,6 @@
 import BaseGrid from './components/base-ui/BaseGrid'
 import Vue from 'vue'
 
-import Vue from 'vue'
-
 export default {
     name: "App",
     mixins:[BaseGrid],

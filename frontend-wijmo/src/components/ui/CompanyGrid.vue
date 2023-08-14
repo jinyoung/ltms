@@ -7,13 +7,9 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-<<<<<<< HEAD
-
-=======
                 <v-btn @click="openUpdateCompany" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>회사 업데이트
                 </v-btn>
->>>>>>> origin/template
                 <v-dialog v-model="updateCompanyDiagram" width="500">
                     <UpdateCompanyCommand
                         @closeDialog="closeUpdateCompany"

@@ -1,13 +1,10 @@
 <template>
     <div style="margin: 0 -15px 0 -15px;">
-        <v-card-title>
-            SalesType
-        </v-card-title>
         <v-card-text>
             <div v-if="editMode" style="margin-top:-20px;">
                 <v-select
                     v-model="newValue"
-                    :label="'SalesType'"
+                    :label="label"
                     :items="salestypeList"
                 ></v-select>
             </div>
@@ -25,7 +22,9 @@ export default {
     name: 'SalesType',
     mixins:[BaseEntity],
     components:{},
-    props: {},
+    props: {
+        label: String
+    },
     data: () => ({
         salestypeList : [ "PO",  "PS",  "AS", ],
         newValue: '',
