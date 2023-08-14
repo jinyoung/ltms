@@ -16,12 +16,10 @@ import newtest.InventoryApplication;
 //<<< DDD / Aggregate Root
 public class Inventory {
 
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
-    @EmbeddedId
-    private ProductId productId; //   private Long id;
-
     private Long stock;
+
+    @Embedded
+    private ProductId productId;
 
     public static InventoryRepository repository() {
         InventoryRepository inventoryRepository = InventoryApplication.applicationContext.getBean(
@@ -31,7 +29,7 @@ public class Inventory {
     }
 
     //<<< Clean Arch / Port Method
-    public static void addToInventory(Produced produced) {
+    public static void updateInventory(Produced produced) {
         //implement business logic here:
 
         produced.getSalesItems().forEach(item -> {

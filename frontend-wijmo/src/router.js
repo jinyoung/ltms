@@ -44,11 +44,6 @@ export default new Router({
                 name: 'InventoryManager',
                 component: InventoryManager
             },
-            {
-                path: '/inventories',
-                name: 'InventoryManager',
-                component: InventoryManager
-            },
 
 
 
