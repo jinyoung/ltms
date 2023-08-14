@@ -10,7 +10,7 @@
             />
         </div>
         <div v-else>
-            {{label}} :  {{value}}
+            {{value}}
         </div>
     </div>
 </template>
