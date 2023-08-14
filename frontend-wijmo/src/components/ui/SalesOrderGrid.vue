@@ -7,9 +7,15 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="produce" small color="primary" :disabled="!hasRole('SalesPerson')">
+                <v-btn @click="openProduce" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>생산완료
                 </v-btn>
+                <v-dialog v-model="produceDiagram" width="500">
+                    <ProduceCommand
+                        @closeDialog="closeProduce"
+                        @produce="produce"
+                    ></ProduceCommand>
+                </v-dialog>
                 <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
@@ -132,9 +138,9 @@ export default {
         }
     },
     methods:{
-        produce(){
+        produce(params){
             try{
-                this.repository.invoke(this.getSelectedItem(), "produce", null)
+                this.repository.invoke(this.getSelectedItem(), "produce", params)
                 this.$mainApp.success("produce 성공적으로 처리되었습니다.")
             }catch(e){
                 this.$mainApp.error(e)

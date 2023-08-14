@@ -81,10 +81,16 @@
                 v-if="!editMode"
                 color="primary"
                 text
-                @click="produce"
+                @click="openProduce"
             >
                 Produce
             </v-btn>
+            <v-dialog v-model="produceDiagram" width="500">
+                <ProduceCommand
+                    @closeDialog="closeProduce"
+                    @produce="produce"
+                ></ProduceCommand>
+            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -122,6 +128,7 @@
                 timeout: 5000,
                 text: '',
             },
+            produceDiagram: false,
         }),
 	async created() {
         },
@@ -219,16 +226,17 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async produce() {
+            async produce(params) {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links['produce'].href))
+                        var temp = await axios.put(axios.fixUrl(this.value._links['produce'].href), params)
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
                     }
 
                     this.editMode = false;
+                    this.closeProduce();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -237,6 +245,12 @@
                         this.snackbar.text = e
                     }
                 }
+            },
+            openProduce() {
+                this.produceDiagram = true;
+            },
+            closeProduce() {
+                this.produceDiagram = false;
             },
             async () {
                 try {

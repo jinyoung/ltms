@@ -6,6 +6,7 @@
         </v-card-title>
 
         <v-card-text>
+            <Date label="ProductionDate" v-model="value.productionDate" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -41,6 +42,7 @@
             value: {},
         }),
         created() {
+            this.value.productionDate = '2023-08-14';
         },
         watch: {
         },

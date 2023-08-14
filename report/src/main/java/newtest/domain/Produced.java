@@ -13,4 +13,5 @@ public class Produced extends AbstractEvent {
     private String salesType;
     private List<SalesItem> salesItems;
     private CompanyId companyId;
+    private Date productionDate;
 }
