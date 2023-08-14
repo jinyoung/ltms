@@ -1,7 +1,7 @@
 <template>
     <div style="max-height:80vh;">
         <div class="gs-bundle-of-buttons" style="max-height:10vh;">
-                <v-btn @click="addNewRow" small color="primary" :disabled="!hasRole('')">
+                <v-btn @click="addNewRow" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-plus-circle-outline</v-icon>등록
                 </v-btn>
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('')">
@@ -33,9 +33,8 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="['RowHeader','stock','name',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','name',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
-            <wj-flex-grid-column binding="stock" header="Stock" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="name" header="Name" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
         <v-col>

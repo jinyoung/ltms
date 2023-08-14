@@ -6,8 +6,8 @@
         </div>
         <v-col>
             <div class="label-title">Qty</div>
-            <Number label="입력하세요." v-model="value.qty" :editMode="editMode"/>
-            <ProductId offline label="입력하세요." v-model="value.productId" :editMode="editMode" @change="change"/>
+            <Number label="Qty" v-model="value.qty" :editMode="editMode"/>
+            <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
         </v-col>
 
         <v-card-actions v-if="inList">
