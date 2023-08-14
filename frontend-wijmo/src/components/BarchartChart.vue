@@ -40,12 +40,12 @@
             productionByMonth: [],
         }),
         async created() {
-            var temp = await axios.get(axios.fixUrl('/productionByMonths'));
+            var temp = await axios.get(axios.fixUrl('/productionByMonths'), {params: {sort: "month"}});
 
             temp.data._embedded.productionByMonths.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1]);
 
             this.productionByMonth = temp.data._embedded.productionByMonths;
-            const categories = [ "label" ];
+            const categories = [ "month" ];
             const data = [ "amount" ];
 
             if(this.productionByMonth && this.productionByMonth.length > 0) {
