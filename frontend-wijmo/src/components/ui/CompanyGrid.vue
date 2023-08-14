@@ -75,7 +75,7 @@
                             <Company :offline="offline"
                                 :isNew="!itemToEdit"
                                 :editMode="true"
-                                v-model="itemToEdit"
+                                v-model="newValue"
                                 @add="append"
                                 @edit="edit"
                             />
@@ -122,6 +122,21 @@ export default {
     data: () => ({
         path: 'companies',
     }),
+    watch: {
+        newValue: {
+            deep:true,
+            handler:function(){
+                if(!this.newValue){
+                    this.newValue = {
+                        'name': '',
+                        'industry': '',
+                        'foundedDate': '2023-08-14',
+                        'code': '',
+                    }
+                }
+            }
+        }
+    },
     methods:{
         updateCompany(params){
             try{

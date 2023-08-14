@@ -7,9 +7,15 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="produce" small color="primary" :disabled="!hasRole('SalesPerson')">
+                <v-btn @click="openProduce" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>생산완료
                 </v-btn>
+                <v-dialog v-model="produceDiagram" width="500">
+                    <ProduceCommand
+                        @closeDialog="closeProduce"
+                        @produce="produce"
+                    ></ProduceCommand>
+                </v-dialog>
                 <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>삭제
                 </v-btn>
@@ -69,7 +75,7 @@
                             <SalesOrder :offline="offline"
                                 :isNew="!itemToEdit"
                                 :editMode="true"
-                                v-model="itemToEdit"
+                                v-model="newValue"
                                 @add="append"
                                 @edit="edit"
                             />
@@ -114,13 +120,28 @@ export default {
     data: () => ({
         path: 'salesOrders',
     }),
+    watch: {
+        newValue: {
+            deep:true,
+            handler:function(){
+                if(!this.newValue){
+                    this.newValue = {
+                        'salesOrderNumber': '',
+                        'salesPerson': '',
+                        'salesType': {},
+                        'companyId': {},
+                        'status': {},
+                        'salesItems': [],
+                    }
+                }
+            }
+        }
+    },
     methods:{
-        produce(){
+        produce(params){
             try{
-
-                this.repository.invoke(this.getSelectedItem(), "produce", null)
-                this.$mainApp.success("생산완료가 성공적으로 처리되었습니다.")
-
+                this.repository.invoke(this.getSelectedItem(), "produce", params)
+                this.$mainApp.success("produce 성공적으로 처리되었습니다.")
             }catch(e){
                 this.$mainApp.error(e)
             }

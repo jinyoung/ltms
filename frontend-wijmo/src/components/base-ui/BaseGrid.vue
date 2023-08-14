@@ -20,11 +20,11 @@ import * as wjcCore from "@grapecity/wijmo";
 export default {
     name: 'BaseGrid',
     data: () => ({
-        newValue: {},
+        newValue: null,
         flex: null,
         tick : true,
         openDialog : false,
-        itemToEdit: {},
+        itemToEdit: null,
         selectedRow: null,
         path: 'path',
         repository: null,
@@ -66,7 +66,7 @@ export default {
             }
         },
         addNewRow() {
-            this.itemToEdit = null;
+            this.newValue = null
             this.openDialog = true;
         },
         editSelectedRow() {
@@ -75,6 +75,7 @@ export default {
 
             if (view.currentItem) {
                 this.itemToEdit = JSON.parse(JSON.stringify(view.currentItem));
+                this.newValue = this.itemToEdit
                 this.edit(this.itemToEdit);
                 this.$set(this, 'selectedRow', this.itemToEdit);
 
@@ -164,15 +165,13 @@ export default {
         append() {
             this.tick = false;
             this.openDialog = false
-
+            
             if (!this.value) {
                 this.value = [];
             }
-
-            const newItem = { ...this.itemToEdit };
+            const newItem = { ...this.newValue};
 
             this.value.push(newItem);
-
             this.$emit('input', this.value);
 
             this.$nextTick(() => {
@@ -211,8 +210,12 @@ export default {
             return me.value;
         },
         edit(){
-            let flexGrid = this.$refs.flexGrid
-            this.itemToEdit = flexGrid.collectionView.currentItem
+            for(var i = 0; i < this.value.length; i++){
+                if(this.value[i].index == this.itemToEdit.index){
+                    this.value[i] = this.itemToEdit
+                    break;
+                }
+            }
             this.openDialog = false;
         }
     },

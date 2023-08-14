@@ -33,9 +33,12 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="['RowHeader','name',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','name','code','spec','status',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
-            <wj-flex-grid-column binding="name" header="Name" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="name" header="제품명" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="code" header="제품코드" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="spec" header="제품규격" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="status" header="제품상태" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
         <v-col>
             <v-dialog
@@ -63,7 +66,7 @@
                             <Product :offline="offline"
                                 :isNew="!itemToEdit"
                                 :editMode="true"
-                                v-model="itemToEdit"
+                                v-model="newValue"
                                 @add="append"
                                 @edit="edit"
                             />
@@ -110,6 +113,21 @@ export default {
     data: () => ({
         path: 'products',
     }),
+    watch: {
+        newValue: {
+            deep:true,
+            handler:function(){
+                if(!this.newValue){
+                    this.newValue = {
+                        'name': '',
+                        'code': '',
+                        'spec': '',
+                        'status': {},
+                    }
+                }
+            }
+        }
+    },
     methods:{
     }
 }

@@ -27,6 +27,7 @@ public class SalesOrderController {
     )
     public SalesOrder produce(
         @PathVariable(value = "id") String id,
+        @RequestBody ProduceCommand produceCommand,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
@@ -37,7 +38,7 @@ public class SalesOrderController {
 
         optionalSalesOrder.orElseThrow(() -> new Exception("No Entity Found"));
         SalesOrder salesOrder = optionalSalesOrder.get();
-        salesOrder.produce();
+        salesOrder.produce(produceCommand);
 
         salesOrderRepository.save(salesOrder);
         return salesOrder;
