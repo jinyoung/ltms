@@ -6,7 +6,7 @@ import javax.persistence.*;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
-public enum Status {
+public enum ProductStatus {
     견적,
     개발,
     양산,

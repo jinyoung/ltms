@@ -5,11 +5,11 @@
                 <v-select
                     v-model="newValue"
                     :label="label"
-                    :items="statusList"
+                    :items="productstatusList"
                 ></v-select>
             </div>
             <div v-else style="margin-top:-20px;">
-                Status : {{ value }}
+                ProductStatus : {{ value }}
             </div>
         </v-card-text>
     </div>
@@ -19,19 +19,19 @@
 import BaseEntity from './base-ui/BaseEntity.vue';
 
 export default {
-    name: 'Status',
+    name: 'ProductStatus',
     mixins:[BaseEntity],
     components:{},
     props: {
         label: String
     },
     data: () => ({
-        statusList : [ "Delivered",  "InProduction",  "Ready", ],
+        productstatusList : [ "견적",  "개발",  "양산", ],
         newValue: '',
     }),
     async created() {
         if(!this.value) {
-            this.newValue = this.statusList[0];
+            this.newValue = this.productstatusList[0];
         } else {
             this.newValue = this.value;
         }
