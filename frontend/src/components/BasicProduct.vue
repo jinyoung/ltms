@@ -16,7 +16,6 @@
         </v-card-title >        
 
         <v-card-text>
-            <Number label="" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
             <String label="" v-model="value.name" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
@@ -36,7 +35,7 @@
                     text
                     @click="save"
                 >
-                저장
+                    
                 </v-btn>
                 <v-btn
                     color="primary"

@@ -1,13 +1,10 @@
 <template>
     <div style="margin: 0 -15px 0 -15px;">
-        <v-card-title>
-            Status
-        </v-card-title>
         <v-card-text>
             <div v-if="editMode" style="margin-top:-20px;">
                 <v-select
                     v-model="newValue"
-                    :label="'Status'"
+                    :label="label"
                     :items="statusList"
                 ></v-select>
             </div>
@@ -25,7 +22,9 @@ export default {
     name: 'Status',
     mixins:[BaseEntity],
     components:{},
-    props: {},
+    props: {
+        label: String
+    },
     data: () => ({
         statusList : [ "Delivered",  "InProduction",  "Ready", ],
         newValue: '',

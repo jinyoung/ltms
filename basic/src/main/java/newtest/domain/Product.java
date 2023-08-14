@@ -17,9 +17,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long stock;
-
     private String name;
+
+    @PostPersist
+    public void onPostPersist() {}
 
     public static ProductRepository repository() {
         ProductRepository productRepository = BasicApplication.applicationContext.getBean(

@@ -16,6 +16,6 @@ import org.springframework.beans.BeanUtils;
 public class CompanyId {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long code;
 }
 //>>> DDD / Value Object

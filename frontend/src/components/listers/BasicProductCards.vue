@@ -109,7 +109,6 @@
             me.values = temp.data._embedded.products;
             
             me.newValue = {
-                'stock': 0,
                 'name': '',
             }
         },

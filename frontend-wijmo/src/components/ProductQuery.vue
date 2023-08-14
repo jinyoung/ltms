@@ -8,7 +8,7 @@
             <v-row no-gutters style="margin: 15px 0px -30px -15px;">
                 <v-col style="max-width:140px;">
                     <div class="search-label">Name</div>
-                    <String class="attributes-list" label="입력하세요." v-model="value.parameters.name" :editMode="editMode"/>
+                    <String class="attributes-list" label="Name" v-model="value.parameters.name" :editMode="editMode"/>
                 </v-col>
                 <v-col>
                     <v-btn class="gs-query-search-btn"

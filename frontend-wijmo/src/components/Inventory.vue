@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="label-title">재고량</div>
-        <Number label="입력하세요." v-model="value.stock" :editMode="editMode"/>
+        <Number label="재고량" v-model="value.stock" :editMode="editMode"/>
+        <div class="label-title" style="color: black">ProductId</div>
         <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>

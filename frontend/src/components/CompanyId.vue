@@ -43,7 +43,7 @@
             if(!Object.values(this.value)[0]) {
                 this.$emit('input', {});
                 this.newValue = {
-                    'id': '',
+                    'code': '',
                 }
             }
             else {

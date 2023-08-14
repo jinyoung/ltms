@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="label-title">이름</div>
-        <String label="입력하세요." v-model="value.name" :editMode="editMode"/>
+        <String label="이름" v-model="value.name" :editMode="editMode"/>
         <div class="label-title">산업</div>
-        <String label="입력하세요." v-model="value.industry" :editMode="editMode"/>
+        <String label="산업" v-model="value.industry" :editMode="editMode"/>
         <div class="label-title">설립일자</div>
-        <Date label="입력하세요." v-model="value.foundedDate" :editMode="editMode"/>
+        <Date label="설립일자" v-model="value.foundedDate" :editMode="editMode"/>
         <div class="label-title">회사코드</div>
-        <String label="입력하세요." v-model="value.code" :editMode="editMode"/>
+        <String label="회사코드" v-model="value.code" :editMode="editMode"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
         <v-layout row justify-end>
