@@ -2,7 +2,7 @@
 
     <v-card outlined>
         <v-card-title>
-            Produce
+            생산완료
         </v-card-title>
 
         <v-card-text>
@@ -16,7 +16,7 @@
                     text
                     @click="produce"
             >
-                Produce
+                생산완료
             </v-btn>
             
             <v-btn
@@ -24,7 +24,7 @@
                     text
                     @click="close"
             >
-                Close
+                취소
             </v-btn>
         </v-card-actions>
     </v-card>
