@@ -133,8 +133,6 @@ export default {
         path: 'salesOrders',
     }),
     methods:{
-<<<<<<< HEAD
-=======
         createSalesOrder(params){
             try{
                 this.repository.invoke(this.getSelectedItem(), "createSalesOrder", params)
@@ -151,7 +149,6 @@ export default {
                 this.$mainApp.error(e)
             }
         },
->>>>>>> origin/template
         produce(){
             try{
 
