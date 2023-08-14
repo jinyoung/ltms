@@ -1,8 +1,8 @@
 <template>
     <div>
-        <BasePicker v-if="editMode" searchApiPath="basic.products/search/findBy" searchParameterName="" idField="" nameField="" path="basic.products" label="ProductId" v-model="value" @selected="pick" :editMode="editMode" />
-        <div v-else>
-            <span>{{ value && value.name ? value.name : '' }}</span>
+        <BasePicker v-if="editMode" searchApiPath="products/search/findByProductQuery" searchParameterName="name" idField="id" nameField="name" path="products" label="ProductId" v-model="value" @selected="pick" :editMode="editMode" />
+        <div v-else @click="toggleEditMode">
+            <span>{{ value && value.name ? value.name : value }}</span>
         </div>
     </div>
 
@@ -17,7 +17,8 @@ export default {
     components:{
     },
     data: () => ({
-        path: 'basic.products',
+        path: 'products',
+        originalEditMode: false
     }),
     watch: {
         value(val){
@@ -29,11 +30,18 @@ export default {
         if (this.value && this.value.id !== undefined) {
             this.value = await this.repository.findById(this.value.id)
         }
+        this.originalEditMode = this.editMode
     },
     methods: {
+        toggleEditMode(){
+            if(this.originalEditMode){
+                this.editMode = !this.editMode
+            }
+        },
         pick(val){
             this.value = val;
             this.change();
+            this.toggleEditMode()
         },
     }
 }

@@ -15,6 +15,7 @@
             editMode: Boolean,
             isNew: Boolean,
             inList: Boolean,
+            label: String
         },
         computed: {},
         data: () => ({

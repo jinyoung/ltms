@@ -15,6 +15,6 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 public class CompanyId {
 
-    private String id;
+    private String code;
 }
 //>>> DDD / Value Object

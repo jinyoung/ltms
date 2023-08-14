@@ -1,16 +1,16 @@
 <template>
     <div>
-        <v-text-field :label="label" v-model="searchKeyword"></v-text-field>
-        <v-select
+        
+        <v-combobox
             :items="list"
             :item-text="nameField"
             :item-value="idField"
-            label="선택"
+            :label="label"
             return-object
             v-model="selected"
             @change="select"
             solo
-        ></v-select>
+        ></v-combobox>
     </div>
 </template>
 
@@ -56,7 +56,7 @@ export default {
         }
     },
     watch:{
-        "searchKeyword": {
+        "selected": {
             handler: _.debounce(async function (newVal) {
                 var me = this;
                 var temp = null
@@ -80,12 +80,15 @@ export default {
             this.referenceValue = val;
             if (val) {
                 var uriParts = val._links.self.href.split('/');
-                var obj = uriParts.pop();
+                var id = uriParts.pop();
+                val[this.idField] = id
+                val = Object.assign({}, val)
                 
-                
-                this.$emit('input', obj);
+                this.$emit('input', val);
+                this.$emit('selected', val)
             } else {
                 this.$emit('input', null);
+                this.$emit('selected', null)
             }
         },
     },
