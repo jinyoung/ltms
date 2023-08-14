@@ -28,10 +28,6 @@ export default {
         selectedRow: null,
         path: 'path',
         repository: null,
-        snackbar: {
-            status: false,
-            text: ''
-        },
     }),
     mixins:[
         BaseEntity,
@@ -90,7 +86,10 @@ export default {
         flexDetailsInitialized(flexGridDetails) {
             this.$refs.flexGridDetails = flexGridDetails;
         },
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/template
         getSelectedItem(){
             const flexGrid = this.$refs.flexGrid;
             const view = flexGrid.collectionView;
@@ -168,6 +167,7 @@ export default {
         },
         append() {
             this.tick = false;
+            this.openDialog = false
 
             if (!this.value) {
                 this.value = [];
@@ -214,6 +214,13 @@ export default {
 
             return me.value;
         },
+        edit(){
+            this.value = []
+            this.itemToEdit = null
+            this.openDialog = false;
+            this.value = this.search(null)
+            
+        }
     },
     filters: {
         safeCurrency: function (value) {

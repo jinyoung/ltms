@@ -82,7 +82,6 @@
                         this.$emit('edit', this.value);
                     }
 
-                    //location.reload()
 
                 } catch(e) {
                     this.$mainApp.error(e)
@@ -108,7 +107,7 @@
             },
             closeDialog(){
                 this.openDialog = false
-                //location.reload()
+                this.editMode = false
             },
 
         },

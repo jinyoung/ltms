@@ -7,13 +7,22 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
+<<<<<<< HEAD
 
+=======
+                <v-btn @click="openUpdateCompany" small color="primary" :disabled="!hasRole('Admin')">
+                    <v-icon small>mdi-minus-circle-outline</v-icon>회사 업데이트
+                </v-btn>
+>>>>>>> origin/template
                 <v-dialog v-model="updateCompanyDiagram" width="500">
                     <UpdateCompanyCommand
                         @closeDialog="closeUpdateCompany"
                         @updateCompany="updateCompany"
                     ></UpdateCompanyCommand>
                 </v-dialog>
+                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('Admin')">
+                    <v-icon small>mdi-minus-circle-outline</v-icon>삭제
+                </v-btn>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
         <CompanyQuery @search="search"></CompanyQuery>
@@ -37,7 +46,7 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'name','industry','foundedDate','code',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','name','industry','foundedDate','code',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="name" header="이름" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="industry" header="산업" width="2*" :isReadOnly="true" align="center" />
@@ -63,7 +72,7 @@
                             <v-icon
                                 color="white"
                                 small
-                                @click="openDialog = false"
+                                @click="closeDialog()"
                             >mdi-close</v-icon>
                         </v-toolbar>
                         <v-card-text>
@@ -72,6 +81,7 @@
                                 :editMode="true"
                                 v-model="itemToEdit"
                                 @add="append"
+                                @edit="edit"
                             />
                         </v-card-text>
                     </v-card>
@@ -122,7 +132,7 @@ export default {
                 this.repository.invoke(this.getSelectedItem(), "updateCompany", params)
                 this.$mainApp.success("UpdateCompany 성공적으로 처리되었습니다.")
             }catch(e){
-                this.$mainApp.reportError(e)
+                this.$mainApp.error(e)
             }
         },
     }

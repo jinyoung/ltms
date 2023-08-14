@@ -19,6 +19,5 @@ public class SalesItem {
 
     @Embedded
     private ProductId productId;
-
 }
 //>>> DDD / Value Object

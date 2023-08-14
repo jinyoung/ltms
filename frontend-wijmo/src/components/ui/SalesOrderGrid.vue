@@ -7,11 +7,8 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="produce" small color="primary">
-                    <v-icon small>mdi-minus-circle-outline</v-icon>생산완료
-                </v-btn>
-                <v-btn @click="deleteSelectedRows" small color="primary">
-                    <v-icon small>mdi-minus-circle-outline</v-icon>삭제
+                <v-btn @click="openCreateSalesOrder" small color="primary" :disabled="!hasRole('SalesPerson')">
+                    <v-icon small>mdi-minus-circle-outline</v-icon>수주 생성
                 </v-btn>
                 <v-dialog v-model="createSalesOrderDiagram" width="500">
                     <CreateSalesOrderCommand
@@ -19,12 +16,21 @@
                         @createSalesOrder="createSalesOrder"
                     ></CreateSalesOrderCommand>
                 </v-dialog>
+                <v-btn @click="openUpdateSalesOrder" small color="primary" :disabled="!hasRole('SalesPerson')">
+                    <v-icon small>mdi-minus-circle-outline</v-icon>수주 수정
+                </v-btn>
                 <v-dialog v-model="updateSalesOrderDiagram" width="500">
                     <UpdateSalesOrderCommand
                         @closeDialog="closeUpdateSalesOrder"
                         @updateSalesOrder="updateSalesOrder"
                     ></UpdateSalesOrderCommand>
                 </v-dialog>
+                <v-btn @click="produce" small color="primary" :disabled="!hasRole('SalesPerson')">
+                    <v-icon small>mdi-minus-circle-outline</v-icon>생산완료
+                </v-btn>
+                <v-btn @click="deleteSelectedRows" small color="primary" :disabled="!hasRole('SalesPerson')">
+                    <v-icon small>mdi-minus-circle-outline</v-icon>삭제
+                </v-btn>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
 
@@ -47,7 +53,7 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'salesOrderNumber','salesPerson','salesType','status','companyId','salesItems',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','salesOrderNumber','salesPerson','salesType','companyId','status','salesItems',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="salesOrderNumber" header="수주 번호" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesPerson" header="수주 담당자" width="2*" :isReadOnly="true" align="center" />
@@ -74,7 +80,7 @@
                             <v-icon
                                 color="white"
                                 small
-                                @click="openDialog = false"
+                                @click="closeDialog()"
                             >mdi-close</v-icon>
                         </v-toolbar>
                         <v-card-text>
@@ -83,6 +89,7 @@
                                 :editMode="true"
                                 v-model="itemToEdit"
                                 @add="append"
+                                @edit="edit"
                             />
                         </v-card-text>
                     </v-card>
@@ -126,6 +133,25 @@ export default {
         path: 'salesOrders',
     }),
     methods:{
+<<<<<<< HEAD
+=======
+        createSalesOrder(params){
+            try{
+                this.repository.invoke(this.getSelectedItem(), "createSalesOrder", params)
+                this.$mainApp.success("CreateSalesOrder 성공적으로 처리되었습니다.")
+            }catch(e){
+                this.$mainApp.error(e)
+            }
+        },
+        updateSalesOrder(params){
+            try{
+                this.repository.invoke(this.getSelectedItem(), "updateSalesOrder", params)
+                this.$mainApp.success("UpdateSalesOrder 성공적으로 처리되었습니다.")
+            }catch(e){
+                this.$mainApp.error(e)
+            }
+        },
+>>>>>>> origin/template
         produce(){
             try{
 

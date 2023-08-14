@@ -9,7 +9,7 @@
                 :timeout="snackbar.timeout"
                 :color="snackbar.color"
             >
-                
+                {{ snackbar.text }}
                 <v-btn dark text @click="snackbar.status = false">
                     Close
                 </v-btn>
@@ -401,6 +401,7 @@
 
 <script>
 import BaseGrid from './components/base-ui/BaseGrid'
+import Vue from 'vue'
 
 import Vue from 'vue'
 
