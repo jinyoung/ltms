@@ -17,4 +17,6 @@ public class ProductionByMonth {
     private String yymm;
 
     private Long amount;
+    private Integer year;
+    private Integer month;
 }
