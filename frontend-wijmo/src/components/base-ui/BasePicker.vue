@@ -54,28 +54,35 @@ export default {
                 me.referenceValue = val
             }
         }
+
+        if(this.editMode){
+            this.fillSelections()
+        }
     },
     watch:{
         "selected": {
             handler: _.debounce(async function (newVal) {
-                var me = this;
-                var temp = null
-                if (newVal) {
-                    let query = {
-                        apiPath: me.searchApiPath,
-                        parameters: {}
-                    };
-                    query.parameters[me.searchParameterName] = me.searchKeyword;
-                    temp = await me.repository.find(query);
-                } else {
-                    temp = await me.repository.find(null);
-                }
-                me.list = temp;
+                
             }, 500),
             immediate: true 
         },
     },
     methods: {
+        async fillSelections(newVal){
+            var me = this;
+            var temp = null
+            if (newVal) {
+                let query = {
+                    apiPath: me.searchApiPath,
+                    parameters: {}
+                };
+                query.parameters[me.searchParameterName] = me.searchKeyword;
+                temp = await me.repository.find(query);
+            } else {
+                temp = await me.repository.find(null);
+            }
+            me.list = temp;
+        },
         select(val) {
             this.referenceValue = val;
             if (val) {

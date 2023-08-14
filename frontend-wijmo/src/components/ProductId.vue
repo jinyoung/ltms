@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BasePicker v-if="editMode" searchApiPath="products/search/findByProductQuery" searchParameterName="name" idField="id" nameField="name" path="products" label="ProductId" v-model="value" @selected="pick" :editMode="editMode" />
+        <BasePicker v-if="originalEditMode" searchApiPath="products/search/findByProductQuery" searchParameterName="name" idField="id" nameField="name" path="products" label="ProductId" v-model="value" @selected="pick" :editMode="editMode" />
         <div v-else @click="toggleEditMode">
             <span>{{ value && value.name ? value.name : value }}</span>
         </div>
@@ -20,12 +20,12 @@ export default {
         path: 'products',
         originalEditMode: false
     }),
-    watch: {
-        value(val){
-            this.value = val;
-            this.change();
-        },
-    },
+    // watch: {
+    //     value(val){
+    //         this.value = val;
+    //         this.change();
+    //     },
+    // },
     async created(){
         if (this.value && this.value.id !== undefined) {
             this.value = await this.repository.findById(this.value.id)
@@ -35,7 +35,7 @@ export default {
     methods: {
         toggleEditMode(){
             if(this.originalEditMode){
-                this.editMode = !this.editMode
+                this.originalEditMode = !this.originalEditMode
             }
         },
         pick(val){
