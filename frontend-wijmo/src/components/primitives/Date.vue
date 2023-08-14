@@ -24,6 +24,7 @@
                         v-model="date"
                         no-title
                         scrollable
+                        :label="label"
                 >
                     <v-spacer></v-spacer>
                     <v-btn text color="primary" @click="menu = false">
@@ -49,6 +50,7 @@
         props: {
             value: Object,
             editMode: Boolean,
+            label: String
         },
         data: () => ({
             menu: false,

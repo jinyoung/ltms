@@ -62,6 +62,7 @@ public class SalesOrder {
         //implement business logic here:
 
         Produced produced = new Produced(this);
+        produced.setProductionDate(produceCommand.getProductionDate());
         produced.publishAfterCommit();
     }
     //>>> Clean Arch / Port Method

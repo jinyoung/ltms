@@ -7,12 +7,12 @@
                 <v-btn  @click="editSelectedRow" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn @click="openProduce" small color="primary" :disabled="!hasRole('SalesPerson')">
+                <v-btn @click="produceDialog = true" small color="primary" :disabled="!hasRole('SalesPerson')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>생산완료
                 </v-btn>
-                <v-dialog v-model="produceDiagram" width="500">
+                <v-dialog v-model="produceDialog" width="500">
                     <ProduceCommand
-                        @closeDialog="closeProduce"
+                        @closeDialog="produceDialog=false"
                         @produce="produce"
                     ></ProduceCommand>
                 </v-dialog>
@@ -119,6 +119,7 @@ export default {
     },
     data: () => ({
         path: 'salesOrders',
+        produceDialog: false
     }),
     watch: {
         newValue: {

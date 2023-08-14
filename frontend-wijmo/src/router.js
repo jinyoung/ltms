@@ -48,6 +48,12 @@ export default new Router({
 
 
 
+            {
+                path: '/productionByMonths',
+                name: 'ProductionByMonthView',
+                component: ProductionByMonthView
+            },
+
 
     ]
 })
