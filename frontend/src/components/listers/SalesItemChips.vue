@@ -14,7 +14,6 @@
                         <v-list-item-subtitle>
                             Qty :  {{item.qty }} <br>
                             ProductId :  {{item.productId }} <br>
-                            ProductId :  {{item.productId }} <br>
                         </v-list-item-subtitle>
                     </v-list-item-content>
                     <v-list-item-action v-if="editMode">

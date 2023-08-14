@@ -45,7 +45,7 @@
         created() {
             this.value.name = '';
             this.value.industry = '';
-            this.value.foundedDate = '2023-08-10';
+            this.value.foundedDate = '2023-08-14';
         },
         watch: {
         },

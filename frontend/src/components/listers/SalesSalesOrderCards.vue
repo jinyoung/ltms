@@ -113,8 +113,8 @@
                 'salesOrderNumber': '',
                 'salesPerson': '',
                 'salesType': '',
-                'status': '',
                 'companyId': {},
+                'status': '',
                 'salesItems': [],
             }
         },

@@ -32,7 +32,7 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="[RowHeader,'stock','name',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','stock','name',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="stock" header="Stock" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="name" header="Name" width="2*" :isReadOnly="true" align="center" />
@@ -56,7 +56,7 @@
                             <v-icon
                                 color="white"
                                 small
-                                @click="openDialog = false"
+                                @click="closeDialog()"
                             >mdi-close</v-icon>
                         </v-toolbar>
                         <v-card-text>
@@ -65,6 +65,7 @@
                                 :editMode="true"
                                 v-model="itemToEdit"
                                 @add="append"
+                                @edit="edit"
                             />
                         </v-card-text>
                     </v-card>

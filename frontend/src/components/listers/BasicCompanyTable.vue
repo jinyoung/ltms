@@ -89,7 +89,7 @@
             this.newValue = {
                 'name': '',
                 'industry': '',
-                'foundedDate': '2023-08-10',
+                'foundedDate': '2023-08-14',
                 'code': '',
             }
         },

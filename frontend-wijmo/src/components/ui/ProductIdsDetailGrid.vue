@@ -17,6 +17,7 @@
         >
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
         </wj-flex-grid>
+
         <v-btn v-if="editMode" @click="append()">추가</v-btn>
         <v-btn v-if="editMode" @click="detailDeleteRow()">삭제</v-btn>
     </div>
@@ -29,9 +30,9 @@ import ProductId from '../ProductId.vue';
 export default {
     name: 'ProductIdsDetailGrid',
     mixins: [BaseDetailGrid],
-    components: [
+    components: {
         ProductId
-    ],
+    },
     methods: {
     }
 }

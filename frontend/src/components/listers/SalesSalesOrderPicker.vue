@@ -24,10 +24,10 @@
                                 SalesType :  {{item.salesType }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Status :  {{item.status }}
+                                CompanyId :  {{item.companyId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                CompanyId :  {{item.companyId }}
+                                Status :  {{item.status }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 SalesItems :  {{item.salesItems }}

@@ -16,10 +16,18 @@
             style="margin-top:10px; max-height:65vh;"
         >
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
-            <wj-flex-grid-column binding="qty" header="Qty" width="2*" :isReadOnly="!editMode" align="center" />
-            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
-            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="!editMode" align="center" />
+            <wj-flex-grid-column binding="qty" header="Qty" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">
+                    <Number label="입력하세요." v-model="cell.item.qty" :editMode="editMode"/>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
+            <wj-flex-grid-column binding="productId" header="ProductId" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">
+                    <ProductId :editMode="editMode" v-model="cell.item.productId"></ProductId>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
         </wj-flex-grid>
+
         <v-btn v-if="editMode" @click="append()">추가</v-btn>
         <v-btn v-if="editMode" @click="detailDeleteRow()">삭제</v-btn>
     </div>
@@ -32,9 +40,9 @@ import SalesItem from '../SalesItem.vue';
 export default {
     name: 'SalesItemsDetailGrid',
     mixins: [BaseDetailGrid],
-    components: [
+    components: {
         SalesItem
-    ],
+    },
     methods: {
     }
 }

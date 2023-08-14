@@ -8,7 +8,6 @@
         <v-card-text>
             <Number label="Qty" v-model="value.qty" :editMode="editMode"/>
             <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
-            <ProductId offline label="ProductId" v-model="value.productId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions v-if="inList">
@@ -37,7 +36,6 @@
                 this.$emit('input', {});
                 this.newValue = {
                     'qty': '',
-                    'productId': '',
                     'productId': '',
                 }
             }
