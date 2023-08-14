@@ -15,7 +15,7 @@ import SalesOrderManager from "./components/ui/SalesOrderGrid"
 import InventoryManager from "./components/ui/InventoryGrid"
 
 
-import ProductionByMonthView from "./components/ProductionByMonthView"
+import ProductionByMonthView from "./components/BarchartChart"
 
 export default new Router({
     // mode: 'history',

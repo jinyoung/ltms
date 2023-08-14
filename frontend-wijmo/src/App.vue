@@ -108,26 +108,6 @@
                     <v-list-group>
                         <template v-slot:activator>
                             <v-list-item-content>
-                                <v-list-item-title>Inventory</v-list-item-title>
-                            </v-list-item-content>
-                        </template>
-
-                    </v-list-group>
-                </v-list>
-                <v-list>
-                    <v-list-group>
-                        <template v-slot:activator>
-                            <v-list-item-content>
-                                <v-list-item-title>Delivery</v-list-item-title>
-                            </v-list-item-content>
-                        </template>
-
-                    </v-list-group>
-                </v-list>
-                <v-list>
-                    <v-list-group>
-                        <template v-slot:activator>
-                            <v-list-item-content>
                                 <v-list-item-title>재고</v-list-item-title>
                             </v-list-item-content>
                         </template>
@@ -151,6 +131,17 @@
                                 <v-list-item-title>레포트</v-list-item-title>
                             </v-list-item-content>
                         </template>
+
+                        <v-list-item
+                            class="px-2"
+                            key="productionByMonths"
+                            to="/productionByMonths"
+                            @click="changeUrl()"
+                            style="font-weight:700;
+                            font-size:14px;"
+                        >
+                            월별생산량
+                        </v-list-item>
 
                     </v-list-group>
                 </v-list>
