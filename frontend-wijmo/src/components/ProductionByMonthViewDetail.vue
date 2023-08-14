@@ -12,6 +12,12 @@
             <div>
                 <Number label="Amount" v-model="item.amount" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <Number label="Year" v-model="item.year" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <Number label="Month" v-model="item.month" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
     </v-card>
 

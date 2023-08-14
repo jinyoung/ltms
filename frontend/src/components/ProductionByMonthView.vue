@@ -23,6 +23,8 @@
             headers: [
                 { text: "yymm", value: "yymm" },
                 { text: "amount", value: "amount" },
+                { text: "year", value: "year" },
+                { text: "month", value: "month" },
             ],
             productionByMonth : [],
         }),
