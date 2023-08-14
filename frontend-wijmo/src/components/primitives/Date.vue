@@ -62,8 +62,12 @@
             }
         },
         watch: {
-            value() {
-                this.change();
+            // value() {
+            //     this.change();
+            // },
+            date(){
+                this.value = this.date
+                this.change()
             }
         },
         methods:{

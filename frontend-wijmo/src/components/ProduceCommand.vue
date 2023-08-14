@@ -48,6 +48,7 @@
         },
         methods: {
             produce() {
+                this.change()
                 this.$emit('produce', this.value);
             },
             close() {

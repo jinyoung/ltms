@@ -23,7 +23,7 @@ public class Product {
 
     private String spec;
 
-    private Status status;
+    private ProductStatus status;
 
     @PostPersist
     public void onPostPersist() {}

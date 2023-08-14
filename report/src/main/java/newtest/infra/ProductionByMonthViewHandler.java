@@ -22,7 +22,7 @@ public class ProductionByMonthViewHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whenProduced_then_CREATE_1(@Payload Produced produced) {
-        try {
+        //try {
             if (!produced.validate()) return;
 
             // view 객체 생성
@@ -30,16 +30,23 @@ public class ProductionByMonthViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             SimpleDateFormat formatter = new SimpleDateFormat("yyMM");
 
-            productionByMonth.setYymm(formatter.format(new Date()));
-            productionByMonth.setAmount(
-                productionByMonth.getAmount() +
-                Long.valueOf(produced.getSalesItems()!=null ? Long.valueOf(produced.getSalesItems().size()) : 0L)
-            );
+            productionByMonth.setYymm(formatter.format(produced.getProductionDate()));
+            productionByMonth.setYear(produced.getProductionDate().getYear()+1900);
+            productionByMonth.setMonth(produced.getProductionDate().getMonth()+1);
+
+            if(produced.getSalesItems()!=null){
+                long sumOfProductionQty = produced.getSalesItems().stream().map(a->((Number)a.get("qty")).longValue()).reduce(0L, (a,b)-> a+b);
+
+                productionByMonth.setAmount(
+                    (productionByMonth.getAmount()!=null ? productionByMonth.getAmount().longValue() : 0L) +
+                    (produced.getSalesItems()!=null ? sumOfProductionQty : 0L)
+                );
+            }
             // view 레파지 토리에 save
             productionByMonthRepository.save(productionByMonth);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
     }
 
 }
