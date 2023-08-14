@@ -5,12 +5,12 @@
 ### Cluster에 sales Service를 생성하려면 아래의 명령어를 실행하세요.
 
 ```
-$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T000418Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=a17cb423ea4138d76b30094432b6e067ec1e5217267b66fd8eb3773dda8b1027
+$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T005715Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=b932cd8b294181d903fb888e83a0d00a9b4388c4563efc0b5dd05e465a92babb
 ```
 - Yaml 파일에 명시된 스펙으로 sales Service를 생성합니다.  
 
 ```
-$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T000418Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=a17cb423ea4138d76b30094432b6e067ec1e5217267b66fd8eb3773dda8b1027
+$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Service/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T005715Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=b932cd8b294181d903fb888e83a0d00a9b4388c4563efc0b5dd05e465a92babb
 ```
 - Create가 된 상태라면 sales Service의 수정이 이루어지고, Create가 된 상태가 아니라면 sales Service를 Create 해주는 명령어입니다.
 #

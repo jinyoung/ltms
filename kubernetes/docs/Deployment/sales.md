@@ -5,12 +5,12 @@
 ### Cluster에 sales Deployment를 생성하려면 아래의 명령어를 실행하세요.
 
 ```
-$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T000418Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=096b6485f200e9adc9742b5b08f99201ac407e8162f9a57da354fa99edfcdcf0
+$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T005715Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=cd1901068788988700e78c8b6faa431fcc463de32f6b4c78a43f347242b89e58
 ```
 - Yaml 파일에 명시된 스펙으로 sales Deployment를 생성합니다.
 
 ```
-$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T000418Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=096b6485f200e9adc9742b5b08f99201ac407e8162f9a57da354fa99edfcdcf0
+$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/sales.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T005715Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=cd1901068788988700e78c8b6faa431fcc463de32f6b4c78a43f347242b89e58
 ```
 - Create가 된 상태라면 sales Deployment의 수정이 이루어지고, Create가 된 상태가 아니라면 sales Deployment를 Create 해주는 명령어입니다.  
 #

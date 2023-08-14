@@ -54,24 +54,6 @@ public class SalesOrder {
     }
 
     //<<< Clean Arch / Port Method
-    public void createSalesOrder(
-        CreateSalesOrderCommand createSalesOrderCommand
-    ) {
-        //implement business logic here:
-
-    }
-
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
-    public void updateSalesOrder(
-        UpdateSalesOrderCommand updateSalesOrderCommand
-    ) {
-        //implement business logic here:
-
-    }
-
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
     public void produce() {
         //implement business logic here:
 

@@ -21,7 +21,6 @@
             <SalesType offline label="수주유형" v-model="value.salesType" :editMode="editMode" @change="change"/>
             <CompanyId offline label="" v-model="value.companyId" :editMode="editMode" @change="change"/>
             <Status offline label="" v-model="value.status" :editMode="editMode" @change="change"/>
-            <List&lt;SalesItem&gt; offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
             <SalesItemManager offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
         </v-card-text>
 
@@ -36,6 +35,20 @@
                 수정
             </v-btn>
             <div v-else>
+                <v-btn
+                    color="primary"
+                    text
+                    @click="save"
+                >
+                    수주 생성
+                </v-btn>
+                <v-btn
+                    color="primary"
+                    text
+                    @click="save"
+                >
+                    수주 수정
+                </v-btn>
                 <v-btn
                     color="primary"
                     text
@@ -63,34 +76,6 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-                v-if="!editMode"
-                color="primary"
-                text
-                @click="openCreateSalesOrder"
-            >
-                CreateSalesOrder
-            </v-btn>
-            <v-dialog v-model="createSalesOrderDiagram" width="500">
-                <CreateSalesOrderCommand
-                    @closeDialog="closeCreateSalesOrder"
-                    @createSalesOrder="createSalesOrder"
-                ></CreateSalesOrderCommand>
-            </v-dialog>
-            <v-btn
-                v-if="!editMode"
-                color="primary"
-                text
-                @click="openUpdateSalesOrder"
-            >
-                UpdateSalesOrder
-            </v-btn>
-            <v-dialog v-model="updateSalesOrderDiagram" width="500">
-                <UpdateSalesOrderCommand
-                    @closeDialog="closeUpdateSalesOrder"
-                    @updateSalesOrder="updateSalesOrder"
-                ></UpdateSalesOrderCommand>
-            </v-dialog>
             <v-btn
                 v-if="!editMode"
                 color="primary"
@@ -136,8 +121,6 @@
                 timeout: 5000,
                 text: '',
             },
-            createSalesOrderDiagram: false,
-            updateSalesOrderDiagram: false,
         }),
 	async created() {
         },
@@ -235,38 +218,16 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async createSalesOrder() {
-                try {
-                    if(!this.offline){
-                        var temp = await axios.post(axios.fixUrl(this.value._links[''].href))
-                        for(var k in temp.data) this.value[k]=temp.data[k];
-                    }
-
-                    this.editMode = false;
-                    
-                    this.$emit('input', this.value);
-                    this.$emit('delete', this.value);
-                
-                } catch(e) {
-                    this.snackbar.status = true
-                    if(e.response && e.response.data.message) {
-                        this.snackbar.text = e.response.data.message
-                    } else {
-                        this.snackbar.text = e
-                    }
-                }
-            },
-            async updateSalesOrder(params) {
+            async produce() {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links['/sales/update'].href), params)
+                        var temp = await axios.put(axios.fixUrl(this.value._links['produce'].href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
                     }
 
                     this.editMode = false;
-                    this.closeUpdateSalesOrder();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -276,16 +237,29 @@
                     }
                 }
             },
-            openUpdateSalesOrder() {
-                this.updateSalesOrderDiagram = true;
-            },
-            closeUpdateSalesOrder() {
-                this.updateSalesOrderDiagram = false;
-            },
-            async produce() {
+            async () {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links['produce'].href))
+                        var temp = await axios.put(axios.fixUrl(this.value._links[''].href))
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+            },
+            async () {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links[''].href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
