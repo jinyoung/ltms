@@ -8,6 +8,13 @@
             <div>
                 <String label="Name" v-model="item.name" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <String label="Code" v-model="item.code" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="Spec" v-model="item.spec" :editMode="editMode" @change="change" />
+            </div>
+            <Status offline label="Status" v-model="item.status" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

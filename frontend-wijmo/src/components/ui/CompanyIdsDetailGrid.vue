@@ -26,13 +26,11 @@
 
 <script>
 import BaseDetailGrid from '../base-ui/BaseDetailGrid';
-import CompanyId from '../CompanyId.vue';
 
 export default {
     name: 'CompanyIdsDetailGrid',
     mixins: [BaseDetailGrid],
     components: {
-        CompanyId
     },
     methods: {
     }

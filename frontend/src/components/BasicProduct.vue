@@ -16,7 +16,10 @@
         </v-card-title >        
 
         <v-card-text>
-            <String label="" v-model="value.name" :editMode="editMode" :inputUI="''"/>
+            <String label="제품명" v-model="value.name" :editMode="editMode" :inputUI="''"/>
+            <String label="제품코드" v-model="value.code" :editMode="editMode" :inputUI="''"/>
+            <String label="제품규격" v-model="value.spec" :editMode="editMode" :inputUI="''"/>
+            <Status offline label="제품상태" v-model="value.status" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>

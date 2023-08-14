@@ -5,12 +5,12 @@
 ### Cluster에 basic Deployment를 생성하려면 아래의 명령어를 실행하세요.
 
 ```
-$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T080647Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=38e2390a9575203d60059f2a13822827be91bde202d1f573ac07fc0f0cbb250e
+$ kubectl create -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T085141Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=05c054b1d2a4e223a203ad6bbbaf9a9c3387f2bd913f16219bf339fb4ea42ac7
 ```
 - Yaml 파일에 명시된 스펙으로 basic Deployment를 생성합니다.
 
 ```
-$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T080647Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=38e2390a9575203d60059f2a13822827be91bde202d1f573ac07fc0f0cbb250e
+$ kubectl apply -f https://minio.msaez.io/labs-msaez.io/yamlStorage/ltms2/jyjang%40uengine.org/Deployment/basic.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20230814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230814T085141Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=05c054b1d2a4e223a203ad6bbbaf9a9c3387f2bd913f16219bf339fb4ea42ac7
 ```
 - Create가 된 상태라면 basic Deployment의 수정이 이루어지고, Create가 된 상태가 아니라면 basic Deployment를 Create 해주는 명령어입니다.  
 #

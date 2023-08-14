@@ -35,13 +35,11 @@
 
 <script>
 import BaseDetailGrid from '../base-ui/BaseDetailGrid';
-import SalesItem from '../SalesItem.vue';
 
 export default {
     name: 'SalesItemsDetailGrid',
     mixins: [BaseDetailGrid],
     components: {
-        SalesItem
     },
     methods: {
     }

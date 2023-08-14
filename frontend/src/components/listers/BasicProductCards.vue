@@ -110,6 +110,9 @@
             
             me.newValue = {
                 'name': '',
+                'code': '',
+                'spec': '',
+                'status': '',
             }
         },
         methods:{

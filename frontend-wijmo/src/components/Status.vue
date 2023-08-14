@@ -26,7 +26,7 @@ export default {
         label: String
     },
     data: () => ({
-        statusList : [ "Delivered",  "InProduction",  "Ready", ],
+        statusList : [ "견적",  "개발",  "양산", ],
         newValue: '',
     }),
     async created() {

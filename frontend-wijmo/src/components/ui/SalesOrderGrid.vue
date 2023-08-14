@@ -69,7 +69,7 @@
                             <SalesOrder :offline="offline"
                                 :isNew="!itemToEdit"
                                 :editMode="true"
-                                v-model="itemToEdit"
+                                v-model="newValue"
                                 @add="append"
                                 @edit="edit"
                             />
@@ -114,6 +114,23 @@ export default {
     data: () => ({
         path: 'salesOrders',
     }),
+    watch: {
+        newValue: {
+            deep:true,
+            handler:function(){
+                if(!this.newValue){
+                    this.newValue = {
+                        'salesOrderNumber': '',
+                        'salesPerson': '',
+                        'salesType': {},
+                        'companyId': {},
+                        'status': {},
+                        'salesItems': [],
+                    }
+                }
+            }
+        }
+    },
     methods:{
         produce(){
             try{

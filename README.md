@@ -38,7 +38,7 @@ mvn spring-boot:run
 - basic
 ```
  http :8088/companies name="name" industry="industry" foundedDate="foundedDate" code="code" 
- http :8088/products id="id" name="name" 
+ http :8088/products id="id" name="name" code="code" spec="spec" status="status" 
 ```
 - sales
 ```

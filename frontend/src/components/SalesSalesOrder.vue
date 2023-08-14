@@ -21,6 +21,7 @@
             <SalesType offline label="수주유형" v-model="value.salesType" :editMode="editMode" @change="change"/>
             <CompanyId offline label="" v-model="value.companyId" :editMode="editMode" @change="change"/>
             <Status offline label="" v-model="value.status" :editMode="editMode" @change="change"/>
+            <List&lt;SalesItem&gt; offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
             <SalesItemManager offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
         </v-card-text>
 

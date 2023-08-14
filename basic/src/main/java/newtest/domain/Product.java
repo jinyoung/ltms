@@ -19,6 +19,12 @@ public class Product {
 
     private String name;
 
+    private String code;
+
+    private String spec;
+
+    private Status status;
+
     @PostPersist
     public void onPostPersist() {}
 
