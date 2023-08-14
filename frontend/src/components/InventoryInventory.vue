@@ -9,13 +9,15 @@
         </template>
 
         <v-card-title v-if="value._links">
-            Inventory # {{decode(value._links.self.href.split("/")[value._links.self.href.split("/").length - 1])}}
+            재고 # {{decode(value._links.self.href.split("/")[value._links.self.href.split("/").length - 1])}}
         </v-card-title >
         <v-card-title v-else>
-            Inventory
+            재고
         </v-card-title >        
 
         <v-card-text>
+            <Number label="재고량" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
+            <ProductId offline label="" v-model="value.productId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>

@@ -11,4 +11,11 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 //<<< PoEAA / Repository
 @RepositoryRestResource(collectionResourceRel = "products", path = "products")
 public interface ProductRepository
-    extends PagingAndSortingRepository<Product, Long> {}
+    extends PagingAndSortingRepository<Product, Long> {
+    @Query(
+        value = "select product " +
+        "from Product product " +
+        "where(:name is null or product.name like %:name%)"
+    )
+    List<Product> findByProductQuery(String name, Pageable pageable);
+}

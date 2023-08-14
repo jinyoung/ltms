@@ -1,6 +1,6 @@
 <template>
     <div>
-    <h1></h1>
+    <h1>재고</h1>
         <v-row>
             <v-card
                 class="mx-auto"
@@ -26,7 +26,7 @@
                         color="primary"
                         style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                     >
-                         등록
+                        재고 등록
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -41,10 +41,12 @@
                     <v-list-item-content>
                         <v-list-item-title style="margin-bottom:10px;">
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
-                            [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Stock :  {{data.stock }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ ProductId :  {{data.productId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -112,6 +114,8 @@
             this.values = temp.data._embedded.inventories;
             
             this.newValue = {
+                'stock': 0,
+                'productId': {},
             }
         },
         methods: {

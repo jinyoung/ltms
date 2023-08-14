@@ -5,6 +5,10 @@
         </v-card-title>
 
         <v-card-text>
+            <div>
+                <Number label="Stock" v-model="item.stock" :editMode="editMode" @change="change" />
+            </div>
+            <ProductId offline label="ProductId" v-model="item.productId" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

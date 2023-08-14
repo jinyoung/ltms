@@ -28,7 +28,7 @@ spring:
         - id: inventory
           uri: http://localhost:8086
           predicates:
-            - Path=/inventories/**, /deliveries/**, /inventories/**, 
+            - Path=/inventories/**, 
         - id: report
           uri: http://localhost:8087
           predicates:
@@ -76,7 +76,7 @@ spring:
         - id: inventory
           uri: http://inventory:8080
           predicates:
-            - Path=/inventories/**, /deliveries/**, /inventories/**, 
+            - Path=/inventories/**, 
         - id: report
           uri: http://report:8080
           predicates:

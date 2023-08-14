@@ -12,6 +12,7 @@
                 </v-btn>
             <excel-export-button :exportService="this.exportService" :getFlex="getFlex" />
         </div>
+        <ProductQuery @search="search"></ProductQuery>
 
 
         <!-- the grid -->
@@ -96,6 +97,7 @@
 </template>
 
 <script>
+import ProductQuery from '../ProductQuery.vue';
 import Product from '../Product.vue'
 import BaseGrid from '../base-ui/BaseGrid'
 
@@ -103,6 +105,7 @@ export default {
     name: 'productGrid',
     mixins:[BaseGrid],
     components:{
+        ProductQuery,
         Product,
     },
     data: () => ({

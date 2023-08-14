@@ -210,11 +210,9 @@ export default {
             return me.value;
         },
         edit(){
-            this.value = []
-            this.itemToEdit = null
+            let flexGrid = this.$refs.flexGrid
+            this.itemToEdit = flexGrid.collectionView.currentItem
             this.openDialog = false;
-            this.value = this.search(null)
-            
         }
     },
     filters: {
