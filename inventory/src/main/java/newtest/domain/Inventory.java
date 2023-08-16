@@ -16,10 +16,12 @@ import newtest.InventoryApplication;
 //<<< DDD / Aggregate Root
 public class Inventory {
 
-    private Long stock;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @EmbeddedId
+    private ProductId productId; //   private Long id;
 
-    @Embedded
-    private ProductId productId;
+    private Long stock;
 
     public static InventoryRepository repository() {
         InventoryRepository inventoryRepository = InventoryApplication.applicationContext.getBean(
